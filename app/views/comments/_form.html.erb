@@ -1,0 +1,10 @@
+<%= form_with model: [ @post, @post.comments.build ] do |f| %>
+  <div>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
