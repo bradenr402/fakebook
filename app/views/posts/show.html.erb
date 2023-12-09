@@ -1,7 +1,7 @@
-<%= link_to 'Home', root_path %>
-
+<h3><%= @post.user.email %></h3>
 <p><%= @post.body %></p>
 
+<% if current_user == @post.user %>
 <ul>
   <li><%= link_to 'Edit', edit_post_path(@post) %></li>
   <li><%= link_to 'Delete', post_path(@post), data:
@@ -10,9 +10,10 @@
                     turbo_confirm: "Are you sure?"
                   } %></li>
 </ul>
+<% end %>
 
 <h2>Comments</h2>
 <%= render @post.comments %>
 
-<h2>Add a comment:</h2>
+<h3>Add a comment:</h3>
 <%= render 'comments/form' %>
