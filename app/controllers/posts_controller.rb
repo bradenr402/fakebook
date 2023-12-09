@@ -1,5 +1,9 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
+    return unless user_signed_in?
+
     @posts = Post.all
   end
 
@@ -12,7 +16,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
+
     if @post.save
       flash[:success] = "Post successfully created"
       redirect_to @post
@@ -28,6 +33,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
+    
     if @post.update(post_params)
       flash[:success] = "Post was successfully updated"
       redirect_to @post
@@ -41,7 +47,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
 
-    redirect_to root_path, status: :see_other
+    redirect_to root_url, status: :see_other
   end
 
   private

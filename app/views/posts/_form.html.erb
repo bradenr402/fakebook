@@ -1,12 +1,12 @@
 <%= form_with model: @post do |f| %>
   <div>
-    <%= f.label :body %>
-    <%= f.text_area :body, autofocus: true %>
+    <%= f.label :body, 'Post' %><br>
+    <%= f.text_area :body, size: '40x7', autofocus: true %>
     <% @post.errors.full_messages_for(:body).each do |msg| %>
       <div><%= msg %></div>
     <% end %>
   </div>
-  
+
   <div>
     <%= f.submit %>
   </div>
