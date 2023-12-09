@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
 
   devise_scope :user do
     get 'sign_out', to: 'devise/sessions#destroy', as: 'sign_out'
@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   root 'posts#index'
 
   resources :posts do
-    resources :comments, only: [:create, :destroy, :edit, :update]
+    resources :comments, only: [:create, :destroy]
   end
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

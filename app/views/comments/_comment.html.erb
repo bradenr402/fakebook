@@ -1,6 +1,6 @@
 <div>
   <p>
-    <strong><%= comment.user.email %></strong> says:
+    <strong><%= comment.user.name %></strong> says:
     "<%= comment.body %>"
     <% if current_user == comment.user %>
       <%= link_to 'Delete Comment', [comment.post, comment], data: {
