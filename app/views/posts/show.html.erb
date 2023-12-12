@@ -11,6 +11,7 @@
                   } %></li>
 </ul>
 <% end %>
+    <%= render partial: 'likes/button', locals: { likeable: @post } %>
 
 <h3>Comments</h3>
 <%= render @post.comments %>
