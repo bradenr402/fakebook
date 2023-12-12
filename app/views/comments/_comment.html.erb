@@ -7,5 +7,7 @@
                     turbo_method: :delete,
                     turbo_confirm: "Are your sure?"} %>
     <% end %>
+    <br>
+    <%= render partial: 'likes/button', locals: { likeable: comment } %>
   </li>
 </ul>
