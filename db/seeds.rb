@@ -8,35 +8,23 @@ Comment.destroy_all
 
 puts 'Seeding new data...'
 
-puts 'Generating users...'
 User.create(name: 'Braden Roth',
             password: 'password',
             email: 'bradenr402@gmail.com')
 
-10.times do
-  User.create(name: Faker::Name.name,
-              # email: Faker::Internet.email(name: name, separators: ['-'], domain: 'gmail.com'),
+7.times do
+  User.create(name: Faker::Religion::Bible.unique.character,
               password: Faker::Internet.password) do |user|
-                user.email = Faker::Internet.email(name: user.name, separators: ['_'], domain: 'gmail.com')
-                rand(3..7).times do
-                  user.posts.build(body: Faker::Lorem.paragraph_by_chars(number: rand(100..450))) do
-
-                  end
-                end
+                user.email = Faker::Internet.email(name: user.name, separators: ['_'], domain: 'wordofgod.net')
+                user.posts.build(body: Faker::Religion::Bible.unique.quote)
               end
 end
 
-puts 'Generating posts...'
-User.all.each do |user|
-end
-
-puts 'Generating comments...'
 Post.all.each do |post|
   User.all.each do |user|
-    rand(1..3).times do
-      post.comments.create(body: Faker::Lorem.paragraph_by_chars(number: rand(30..100))) do |comment|
-        comment.user = user
-      end
+    post.comments.create(body: Faker::Quote.unique.fortune_cookie) do |comment|
+      comment.user = user
     end
   end
+  Faker::Quote.unique.clear
 end
