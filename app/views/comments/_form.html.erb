@@ -1,6 +1,6 @@
 <%= form_with model: [ @post, @post.comments.build ] do |f| %>
   <div>
-    <%= f.label :body, 'Comment' %><br>
+    <%= f.label :body, 'Add a comment:' %><br>
     <%= f.text_area :body, size: '40x7', autofocus: true %>
   </div>
 
