@@ -3,7 +3,7 @@
 <ul>
   <% @posts.each do |post| %>
     <li>
-      <%= link_to post.body, post %>
-    </li>
+      <strong><%= post.user.name %></strong> posted: "<%= link_to post.body, post %>"
+    </li><br>
   <% end %>
 </ul>
