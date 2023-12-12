@@ -4,9 +4,4 @@
     <%= link_to 'New Post', new_post_path %> |
     <%= link_to 'Sign Out', sign_out_url, method: :delete %>
   </nav>
-<% else %>
-  <nav>
-    <%= link_to 'Home', root_url %> |
-    <%= link_to 'Sign In', sign_in_url %>
-  </nav>
 <% end %>
