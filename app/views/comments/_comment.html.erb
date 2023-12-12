@@ -1,5 +1,5 @@
-<div>
-  <p>
+<ul>
+  <li>
     <strong><%= comment.user.name %></strong> says:
     "<%= comment.body %>"
     <% if current_user == comment.user %>
@@ -7,5 +7,5 @@
                     turbo_method: :delete,
                     turbo_confirm: "Are your sure?"} %>
     <% end %>
-  </p>
-</div>
+  </li>
+</ul>
