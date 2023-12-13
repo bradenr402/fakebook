@@ -1,4 +1,4 @@
-<h3><%= @post.user.name %></h3>
+<h2><%= link_to @post.user.name, @post.user %></h2>
 <p><%= @post.body %></p>
 
 <% if current_user == @post.user %>
@@ -15,6 +15,8 @@
 <%= render partial: 'likes/button', locals: { likeable: @post } %>
 
 <h3>Comments</h3>
-<%= render @post.comments %>
+<ul>
+  <%= render @post.comments %>
+</ul>
 
 <%= render 'comments/form' %>

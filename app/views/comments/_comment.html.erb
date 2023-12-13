@@ -1,13 +1,11 @@
-<ul>
-  <li>
-    <strong><%= comment.user.name %></strong> says:
-    "<%= comment.body %>"
-    <% if current_user == comment.user %>
-      <%= link_to 'Delete Comment', [comment.post, comment], data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are your sure?"} %>
-    <% end %>
-    <br>
-    <%= render partial: 'likes/button', locals: { likeable: comment } %>
-  </li>
-</ul>
+<li>
+  <strong><%= comment.user.name %></strong> says:
+  "<%= comment.body %>"
+  <% if current_user == comment.user %>
+    <%= link_to 'Delete Comment', [comment.post, comment], data: {
+                  turbo_method: :delete,
+                  turbo_confirm: "Are your sure?"} %>
+  <% end %>
+  <br>
+  <%= render partial: 'likes/button', locals: { likeable: comment } %>
+</li>

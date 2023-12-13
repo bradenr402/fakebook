@@ -3,7 +3,7 @@
 <ul>
   <% @posts.each do |post| %>
     <li>
-      <strong><%= post.user.name %></strong> posted: "<%= link_to post.body, post %>"
+      <strong><%= link_to post.user.name, post.user %></strong> posted: "<%= link_to post.body, post %>"
     </li>
     <%= render partial: 'likes/button', locals: { likeable: post } %>
   <% end %>
