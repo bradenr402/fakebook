@@ -3,11 +3,13 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes
 
-  has_many :followed_users, foreign_key: :follower_id, class_name: 'Follow'
-  has_many :followees, through: :followed_users
+  has_many :followed_users, foreign_key: :follower_id, class_name: 'Follow',
+                            dependent: :destroy, inverse_of: :follower
+  has_many :followees, through: :followed_users, source: :followee
 
-  has_many :following_users, foreign_key: :followee_id, class_name: 'Follow'
-  has_many :followers, through: :following_users
+  has_many :following_users, foreign_key: :followee_id, class_name: 'Follow',
+                             dependent: :destroy, inverse_of: :followee
+  has_many :followers, through: :following_users, source: :follower
 
   validates_presence_of :name, :email
 
@@ -16,4 +18,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  def follow(other_user)
+    followed_users.create(followee_id: other_user.id)
+  end
+
+  def unfollow(other_user)
+    followed_users.find_by(followee_id: other_user.id)&.destroy
+  end
+
+  def following?(other_user)
+    followees.include?(other_user)
+  end
 end
