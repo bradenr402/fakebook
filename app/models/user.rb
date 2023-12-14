@@ -11,6 +11,8 @@ class User < ApplicationRecord
                              dependent: :destroy, inverse_of: :followee
   has_many :followers, through: :following_users, source: :follower
 
+  has_many :follow_requests
+
   validates_presence_of :name, :email
 
   # Include default devise modules. Others available are:
