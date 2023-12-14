@@ -2,7 +2,7 @@
 <p><%= @user.email %></p>
 
 <div id="all-links">
-  <% if current_user.followees.include?(@user) %>
+  <% if current_user.following?(@user) %>
     <h5><%= button_to 'Unfollow', unfollow_user_path %></h5>
   <% else %>
     <h5><%= button_to 'Follow', follow_user_path %></h5>
