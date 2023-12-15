@@ -1,0 +1,7 @@
+<li class="follow_request">
+  <% if follow_request.pending? %>
+    <%= link_to follow_request.follower.name, user_path(follow_request.follower) %>
+    <%= button_to 'Accept', accept_request_path(follow_request) %>
+    <%= button_to 'Decline', decline_request_path(follow_request) %>
+  <% end %>
+</li>

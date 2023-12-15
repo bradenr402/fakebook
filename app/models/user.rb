@@ -11,7 +11,7 @@ class User < ApplicationRecord
                              dependent: :destroy, inverse_of: :followee
   has_many :followers, through: :following_users, source: :follower
 
-  has_many :follow_requests
+  has_many :follow_requests, foreign_key: :followee_id
 
   validates_presence_of :name, :email
 
@@ -30,5 +30,11 @@ class User < ApplicationRecord
 
   def following?(other_user)
     followees.include?(other_user)
+  end
+
+  def request_to_follow(other_user)
+    followee = User.find(other_user.id)
+
+    FollowRequest.create(follower_id: id, followee_id: followee.id)
   end
 end

@@ -5,7 +5,6 @@ class CreateFollowRequests < ActiveRecord::Migration[7.1]
       t.integer :followee_id
       t.integer :status, default: 0
 
-
       t.timestamps
     end
     add_index :follow_requests, :follower_id
