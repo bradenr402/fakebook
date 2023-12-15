@@ -1,6 +1,7 @@
 <% if user_signed_in? %>
   <nav>
     <%= link_to 'Home', root_url %> |
+    <%= link_to 'Profile', user_path(current_user) %> |
     <%= link_to 'New Post', new_post_path %> |
     <%= link_to 'Sign Out', sign_out_url, method: :delete %>
   </nav>
