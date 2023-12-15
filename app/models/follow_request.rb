@@ -18,6 +18,6 @@ class FollowRequest < ApplicationRecord
   end
 
   def decline!
-    update!(status: 'decline')
+    update!(status: 'declined')
   end
 end
