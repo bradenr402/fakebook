@@ -19,10 +19,10 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
 
     if @post.save
-      flash[:success] = "Post successfully created"
+      flash[:success] = 'Post successfully created'
       redirect_to @post
     else
-      flash[:error] = "Something went wrong"
+      flash[:error] = 'Something went wrong'
       render :new, staus: :unprocessable_entity
     end
   end
@@ -33,12 +33,12 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    
+
     if @post.update(post_params)
-      flash[:success] = "Post was successfully updated"
+      flash[:success] = 'Post was successfully updated'
       redirect_to @post
     else
-      flash[:error] = "Something went wrong"
+      flash[:error] = 'Something went wrong'
       render :edit, status: :unprocessable_entity
     end
   end
