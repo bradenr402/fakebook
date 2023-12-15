@@ -19,7 +19,6 @@ Rails.application.routes.draw do
     member do
       get :following, :followers
     end
-    # resources :follow_requests, only: [:index]
   end
   post 'users/:id/follow', to: 'users#follow', as: 'follow_user'
   post 'users/:id/unfollow', to: 'users#unfollow', as: 'unfollow_user'
