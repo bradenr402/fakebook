@@ -1,10 +1,12 @@
 <h1>Posts</h1>
 
-<ul>
+<% if @posts.any? %>
+<div id="posts">
   <% @posts.each do |post| %>
-    <li>
-      <strong><%= link_to post.user.name, post.user %></strong> posted: "<%= link_to post.body, post %>"
-    </li>
-    <%= render partial: 'likes/button', locals: { likeable: post } %>
+    <%= render 'post_link', post: post %>
   <% end %>
-</ul>
+</div>
+<% else %>
+  <p>No posts yet.</p>
+  <%= link_to 'New Post', new_post_path %>
+<% end %>

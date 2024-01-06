@@ -26,6 +26,9 @@
 </div>
 
 <h2>Posts</h2>
-<ul>
-  <%= render @user.posts %>
-</ul>
+
+<div id="posts">
+  <% @user.posts.each do |post| %>
+    <%= render 'posts/post_link', post: post %>
+  <% end %>
+</div>
