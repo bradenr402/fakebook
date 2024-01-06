@@ -49,3 +49,61 @@ li.follow_request {
   gap: 10px;
   padding-left: 20px;
 }
+
+
+
+a#new_post_btn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  height: 60px;
+  width: 124px;
+  background-color: #00aaff;
+  border-radius: 12px;
+  text-decoration: none;
+  color: rgb(0, 0, 0, 0.8);
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 12px;
+  transition: all 0.2s ease-in-out;
+}
+
+a#new_post_btn:hover {
+  color: rgb(0, 0, 0, 1);
+  /* box-shadow: 5px 5px 10px #00000066; */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  scale: 1.03;
+}
+
+a#new_post_btn > svg {
+  width: 30px;
+  height: 30px;
+  margin-right: 8px;
+  padding-left: 12px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding-top: 15px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  transition: all 0.2s ease-in-out;
+}
+
+nav a:not(.sign_out):hover {
+  color: #0088ff;
+}
+
+nav a.sign_out:hover {
+  color: #c73c12;
+}
+
+html {
+  margin: 0 10px;
+}

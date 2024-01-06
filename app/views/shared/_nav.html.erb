@@ -1,8 +1,8 @@
 <% if user_signed_in? %>
   <nav>
-    <%= link_to 'Home', root_url %> |
-    <%= link_to 'Profile', user_path(current_user) %> |
-    <%= link_to 'New Post', new_post_path %> |
-    <%= link_to 'Sign Out', sign_out_url, method: :delete %>
+    <%= link_to 'Home', root_url %>
+    <%= link_to 'Profile', user_path(current_user) %>
+    <%= link_to 'Edit account', edit_user_registration_path %>
+    <%= link_to 'Sign Out', sign_out_path, method: :delete %>
   </nav>
 <% end %>
