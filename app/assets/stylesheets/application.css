@@ -50,7 +50,89 @@ li.follow_request {
   padding-left: 20px;
 }
 
+div.user-posts {
+  padding-left: 0;
+}
 
+
+
+
+p.notice {
+  color: green;
+}
+
+p.alert {
+  color: red;
+}
+
+div#posts {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+@media (min-width: 600px) {
+  div#posts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1000px) {
+  div#posts {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  div#posts {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+div#posts-show > div.post {
+  width: 50%;
+  margin: 20px 0 40px;
+}
+
+div.post {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid #3333331a;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+div.username {
+  display: flex;
+  padding: 1.5rem;
+  padding-left: 0.5rem;
+  margin-top: 0.375rem;
+  flex-direction: column;
+  gap: 0.75rem;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 1.25rem;
+}
+
+div.username > a {
+  text-decoration: none;
+  color: black;
+  transition: all 0.2s ease-in-out;
+}
+
+div.username > a:hover {
+  color: #0088ff;
+}
+
+div.comment {
+  padding: 0.5rem 1.5rem 1.5rem;
+}
+
+a.post-link {
+  text-decoration: none;
+  color: inherit;
+}
 
 a#new_post_btn {
   position: fixed;

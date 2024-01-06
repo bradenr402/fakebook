@@ -3,9 +3,11 @@
     <div class="username">
       <%= link_to post.user.name, post.user, class: 'username' %>
     </div>
-    <div class="body">
-      <span><%= post.body %></span>
-    </div>
+    <%= link_to post, class: 'post-link' do %>
+      <div class="body">
+        <%= post.body.truncate(70) %>
+      </div>
+    <% end %>
     <div class="like-btn">
       <%= render partial: 'likes/button', locals: { likeable: post } %>
     </div>

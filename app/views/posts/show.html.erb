@@ -1,18 +1,19 @@
-<h2><%= link_to @post.user.name, @post.user %></h2>
-<p><%= @post.body %></p>
+<p><%= notice %></p>
 
-<% if current_user == @post.user %>
-<ul>
-  <li><%= link_to 'Edit', edit_post_path(@post) %></li>
-  <li><%= link_to 'Delete', post_path(@post), data:
+<div id="posts-show">
+  <%= render @post %>
+</div>
+
+<% if @post.user == current_user %>
+<div>
+  <%= link_to 'Edit this post', edit_post_path(@post) %>
+  <%= link_to 'Delete this post', post_path(@post), data:
   {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
-                  } %></li>
-</ul>
+                  } %>
+</div>
 <% end %>
-
-<%= render partial: 'likes/button', locals: { likeable: @post } %>
 
 <h3>Comments</h3>
 <ul>
