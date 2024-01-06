@@ -189,3 +189,12 @@ nav a.sign_out:hover {
 html {
   margin: 0 10px;
 }
+
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
