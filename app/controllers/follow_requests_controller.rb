@@ -20,11 +20,10 @@ class FollowRequestsController < ApplicationController
     @request = FollowRequest.find(params[:id])
     if @request.destroy
       flash[:success] = 'Follow request successfully canceled'
-      # redirect_to user_path(@request.followee)
     else
       flash[:error] = 'Something went wrong'
     end
-    redirect_to user_path(@request.followee)
+    redirect_back(fallback_location: root_path)
   end
 
   def accept
