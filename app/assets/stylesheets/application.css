@@ -219,6 +219,7 @@ html {
 span.timestamp {
   color: #0066ff;
 }
+
 :root {
   --shadow-color: 0deg 0% 63%;
   --shadow-elevation-low:
@@ -246,10 +247,10 @@ div.profile-card {
   flex-direction: row-reverse;
   gap: 50px;
   align-items: center;
+  justify-content: space-between;
   /* text-align: center; */
 
-  margin: auto;
-  margin-top: 50px;
+  margin: 50px auto;
   width: fit-content;
 
   background: #fff;
@@ -272,4 +273,14 @@ div.profile-card {
 
 .profile-card .info > * {
   margin: 12px 0;
+}
+
+div.all-users div.profile-card {
+  width: 560px;
+  margin: 30px;
+}
+
+div.profile-card h1 > a {
+  text-decoration: none;
+  color: inherit;
 }

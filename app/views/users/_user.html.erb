@@ -1,3 +1,38 @@
-<li>
-  <%= link_to user.name, user %>
-</li>
+<div class="profile-card">
+  <div class="info">
+    <h1><%= link_to user.name, user %></h1>
+    <p><%= user.email %></p>
+
+    <%= render 'shared/stats' %>
+    <div>
+      <% if user == current_user %>
+        <% if current_user.follow_requests.any?(&:pending?) %>
+          <h3>Follow Requests</h3>
+          <%= render current_user.follow_requests %>
+        <% end %>
+      <% else %>
+
+        <% if current_user.following?(user) %>
+          <h5><%= button_to 'Unfollow', unfollow_user_path(user) %></h5>
+        <% else %>
+          <% @request = user.follow_requests.find_by(follower_id: current_user.id) %>
+          <% if @request.nil? %>
+            <h5><%= button_to 'Follow', follow_user_path(user) %></h5>
+          <% elsif @request.pending? %>
+            <h5><%= button_to 'Cancel Request', cancel_request_path(@request), method: :delete %></h5>
+          <% elsif @request.declined? %>
+            <h5>Sorry, <%= user.name %> declined your follow request.</h5>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="profile-image">
+    <% if user == current_user && current_user.avatar.attached? %>
+      <%= image_tag current_user.avatar, class: 'avatar' %>
+    <% else %>
+      <%= image_tag 'default-avatar.png', class: 'avatar' %>
+    <% end %>
+  </div>
+</div>
