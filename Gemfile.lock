@@ -111,8 +111,12 @@ GEM
     erubi (1.12.0)
     faker (3.2.2)
       i18n (>= 1.8.11, < 2)
+    file_validators (3.0.0)
+      activemodel (>= 3.2)
+      mime-types (>= 1.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    gravtastic (3.2.6)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.2.3)
@@ -136,6 +140,9 @@ GEM
       net-smtp
     marcel (1.0.2)
     matrix (0.4.2)
+    mime-types (3.5.2)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2023.1205)
     mini_mime (1.1.5)
     minitest (5.20.0)
     msgpack (1.7.2)
@@ -256,6 +263,8 @@ DEPENDENCIES
   debug
   devise (~> 4.9)
   faker (~> 3.2)
+  file_validators (~> 3.0)
+  gravtastic
   importmap-rails
   jbuilder
   pg (~> 1.1)
@@ -273,4 +282,4 @@ RUBY VERSION
    ruby 3.2.2p53
 
 BUNDLED WITH
-   2.4.21
+   2.5.4

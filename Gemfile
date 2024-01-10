@@ -71,3 +71,7 @@ gem "devise", "~> 4.9"
 gem "responders", "~> 3.1"
 
 gem "faker", "~> 3.2"
+
+gem 'gravtastic'
+
+gem "file_validators", "~> 3.0"

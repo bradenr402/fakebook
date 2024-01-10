@@ -3,9 +3,21 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
+
+  <!--Avatar Upload Field-->
+  <div class="field">
+    <%= f.label :avatar %>
+    <% if current_user.avatar.present? %><br>
+      Current: <%= current_user.avatar.filename.to_s %>
+    <% end %>
+    <%= f.file_field :avatar %>
+  </div>
+  <!--Avatar Upload Field-->
+
+
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
+    <%= f.text_field :name %>
   </div>
 
   <div class="field">

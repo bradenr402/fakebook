@@ -7,22 +7,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def edit
-    @user = User.find(params[:id])
-  end
-
-  def update
-    @user = User.find(user_params)
-
-    if @user.update(params[:user])
-      flash[:success] = 'User was successfully updated'
-      redirect_to @user
-    else
-      flash[:error] = 'Something went wrong'
-      render :edit, status: :unprocessable_entity
-    end
-  end
-
   def follow
     @user = User.find(params[:id])
     current_user.request_to_follow(@user)
