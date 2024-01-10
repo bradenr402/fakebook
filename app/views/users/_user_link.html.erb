@@ -1,6 +1,6 @@
 <div class="profile-card">
   <div class="info">
-    <h1><%= user.name %></h1>
+    <h1><%= link_to user.name, user %></h1>
     <p><%= user.email %></p>
 
     <%= render 'shared/stats' %>
@@ -30,9 +30,9 @@
 
   <div class="profile-image">
     <% if user.avatar.attached? %>
-      <%= image_tag(user.avatar, class: 'avatar') %>
+      <%= link_to image_tag(user.avatar, class: 'avatar'), user %>
     <% else %>
-      <%= image_tag('default-avatar.png', class: 'avatar') %>
+      <%= link_to image_tag('default-avatar.png', class: 'avatar'), user %>
     <% end %>
   </div>
 </div>

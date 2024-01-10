@@ -1,3 +1,5 @@
 <div class="all-users">
-  <%= render @users %>
+  <% @users.each do |user| %>
+    <%= render 'user_link', user: user %>
+  <% end %>
 </div>
