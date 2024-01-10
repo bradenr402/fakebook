@@ -9,5 +9,8 @@
     <div class="like-btn">
       <%= render partial: 'likes/button', locals: { likeable: post } %>
     </div>
+    <div class="posted-time">
+      <span class="timestamp"><%= formatted_datetime(post.created_at) %></span>
+    </div>
   </div>
 </div>

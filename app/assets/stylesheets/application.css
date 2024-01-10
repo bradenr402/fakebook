@@ -207,3 +207,7 @@ html {
   height: 1px;
   overflow: hidden;
 }
+
+span.timestamp {
+  color: #0066ff;
+}
