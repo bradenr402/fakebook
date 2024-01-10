@@ -20,10 +20,15 @@
   box-sizing: border-box;
 }
 
-.likes {
+html {
+  margin: 0 10px;
+  background: #f3f4f6;
+}
+
+div.likes {
   display: flex;
   align-items: center;
-  padding-bottom: 2rem;
+  padding-bottom: 15px;
   width: fit-content;
   gap: 10px;
 }
@@ -56,13 +61,6 @@ li.follow_request {
   padding-left: 20px;
 }
 
-div.user-posts {
-  padding-left: 0;
-}
-
-
-
-
 p.notice {
   color: green;
 }
@@ -75,7 +73,7 @@ div#posts {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
-  padding: 20px;
+  margin: 20px;
 }
 
 @media (min-width: 600px) {
@@ -112,18 +110,17 @@ div.post {
 
 div.body,
 div.like-btn {
-  padding: 0 15px;
+  margin: 0 15px 15px;
 }
 
 div.body {
-  padding-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 div.username {
   display: flex;
-  padding: 1.5rem;
-  padding-left: 0.5rem;
-  margin-top: 0.375rem;
+  margin: 1.5rem;
+  margin-left: 0.5rem;
   flex-direction: column;
   gap: 0.75rem;
   justify-content: flex-start;
@@ -185,7 +182,7 @@ nav {
   display: flex;
   align-items: center;
   gap: 30px;
-  padding-top: 15px;
+  padding: 15px 0;
 }
 
 nav a {
@@ -202,9 +199,8 @@ nav a.sign_out:hover {
   color: #c73c12;
 }
 
-html {
-  margin: 0 10px;
-  background: #f3f4f6;
+h1 {
+  margin-left: 20px;
 }
 
 .sr-only {
@@ -218,6 +214,16 @@ html {
 
 span.timestamp {
   color: #0066ff;
+}
+
+div.post {
+  transform: translateZ(0);
+}
+
+div.posted-time {
+  position: fixed;
+  left: 10px;
+  bottom: 10px;
 }
 
 :root {
