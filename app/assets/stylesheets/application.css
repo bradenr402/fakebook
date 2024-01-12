@@ -94,8 +94,8 @@ div#posts {
 }
 
 div#posts-show > div.post {
-  width: 50%;
-  margin: 20px 0 40px;
+  width: clamp(400px, 50%, 600px);
+  margin: 20px;
 }
 
 div.post {
