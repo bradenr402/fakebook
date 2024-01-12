@@ -301,16 +301,16 @@ div.post {
 div.profile-card {
   display: flex;
   flex-direction: row-reverse;
-  gap: 50px;
+  gap: 30px;
   align-items: center;
-  justify-content: space-between;
+  justify-content: start;
 
   margin: 50px auto;
   width: fit-content;
 
   background: #fff;
   border: 1px solid #3333331a;
-  padding: 50px;
+  padding: 30px;
   box-shadow: var(--shadow-primary);
   border-radius: 20px;
 }
@@ -323,7 +323,6 @@ div.profile-card {
   border-radius: 50%;
   border: 5px solid white;
   box-shadow: var(--shadow-elevation-medium);
-  margin-bottom: 20px;
 }
 
 .profile-card .info > * {
