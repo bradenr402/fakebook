@@ -1,7 +1,21 @@
 <div class="post">
   <div class="frame">
-    <div class="username">
-      <%= link_to post.user.name, post.user, class: 'username' %>
+    <div class="post-header">
+      <div class="profile-image thumb">
+        <% if post.user.avatar.attached? %>
+          <%= link_to image_tag(post.user.avatar, class: 'avatar'), post.user %>
+        <% else %>
+          <%= link_to image_tag('default-avatar.png', class: 'avatar'), post.user %>
+        <% end %>
+      </div>
+      <div class="post-info">
+        <div class="username">
+          <%= link_to post.user.name, post.user, class: 'username' %>
+        </div>
+        <div class="posted-time">
+          <span class="timestamp"><%= formatted_datetime(post.created_at) %></span>
+        </div>
+      </div>
     </div>
     <%= link_to post, class: 'post-link' do %>
       <div class="body">
@@ -10,9 +24,6 @@
     <% end %>
     <div class="like-btn">
       <%= render partial: 'likes/button', locals: { likeable: post } %>
-    </div>
-    <div class="posted-time">
-      <span class="timestamp"><%= formatted_datetime(post.created_at) %></span>
     </div>
   </div>
 </div>

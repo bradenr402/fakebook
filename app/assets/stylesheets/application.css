@@ -110,7 +110,7 @@ div.post {
 
 div.body,
 div.like-btn {
-  margin: 0 15px 15px;
+  margin: 0 10px;
 }
 
 div.body {
@@ -220,10 +220,13 @@ div.post {
   transform: translateZ(0);
 }
 
-div.posted-time {
+div.like-btn {
   position: fixed;
-  left: 10px;
-  bottom: 10px;
+  bottom: 0;
+}
+
+div.frame {
+  height: 175px;
 }
 
 :root {
@@ -289,4 +292,24 @@ div.all-users div.profile-card {
 div.profile-card h1 > a {
   text-decoration: none;
   color: inherit;
+}
+
+div.profile-image.thumb .avatar {
+  height: 70px;
+  width: 70px;
+  margin: 0 10px 0 0;
+}
+
+div.post-header {
+  display: flex;
+  align-items: start;
+  margin: 0 10px 10px 0;
+}
+
+div.post-header div.username {
+    margin: 10px 0 0 0;
+}
+
+div.post-info div.username {
+  align-items: start;
 }
