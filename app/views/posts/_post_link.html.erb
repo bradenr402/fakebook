@@ -1,5 +1,5 @@
 <div class="post">
-  <div class="frame">
+  <%# <div class="frame"> %>
     <div class="post-header">
       <div class="profile-image thumb">
         <% if post.user.avatar.attached? %>
@@ -13,13 +13,31 @@
           <%= link_to post.user.name, post.user, class: 'username' %>
         </div>
         <div class="posted-time">
-          <span class="timestamp">
+          <% if post.been_edited? %>
             <% if post.created_today? %>
-              <%= formatted_time(post.created_at) %>
+              <span class="timestamp tooltip" data-text='edited: <%= formatted_time(post.updated_at) %>'>
+                <%= formatted_time(post.created_at) %>
+              </span>
             <% else %>
-              <%= formatted_datetime(post.created_at) %>
+              <% if post.updated_today? %>
+                <span class="timestamp tooltip" data-text='edited: today at <%= formatted_time(post.updated_at) %>'>
+                  <%= formatted_datetime(post.created_at) %>
+                </span>
+              <% else %>
+                <span class="timestamp tooltip" data-text='edited: <%= formatted_datetime(post.updated_at) %>'>
+                  <%= formatted_datetime(post.created_at) %>
+                </span>
+              <% end %>
             <% end %>
-          </span>
+          <% else %>
+            <span class="timestamp">
+              <% if post.created_today? %>
+                <%= formatted_time(post.created_at) %>
+              <% else %>
+                <%= formatted_datetime(post.created_at) %>
+              <% end %>
+            </span>
+          <% end %>
         </div>
       </div>
     </div>
@@ -31,5 +49,5 @@
     <div class="like-btn">
       <%= render partial: 'likes/button', locals: { likeable: post } %>
     </div>
-  </div>
+  <%# </div> %>
 </div>

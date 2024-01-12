@@ -318,3 +318,62 @@ div.post-header div.username {
 div.post-info div.username {
   align-items: start;
 }
+
+.timestamp.tooltip {
+  position: relative;
+  border-bottom: 1px dashed #000;
+}
+
+.timestamp.tooltip:before {
+  z-index: 1;
+  content: attr(data-text);
+  position: absolute;
+
+  top: 100%;
+  margin-top: 15px;
+
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: max-content;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: #000;
+  color: #fff;
+  text-align: center;
+
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.2s, opacity 0.2s linear;
+}
+
+.timestamp.tooltip:hover:before {
+  z-index: 1;
+  visibility: visible;
+  opacity: 1;
+}
+
+.timestamp.tooltip:after {
+  z-index: 1;
+  content: '';
+  position: absolute;
+
+  top: 100%;
+  margin-top: -5px;
+
+  left: 50%;
+  transform: translateX(-50%);
+
+  border: 10px solid #000;
+  border-color: transparent transparent black transparent;
+
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.2s, opacity 0.2s linear;
+}
+
+.timestamp.tooltip:hover:after {
+  z-index: 1;
+  visibility: visible;
+  opacity: 1;
+}

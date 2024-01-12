@@ -12,4 +12,12 @@ class Post < ApplicationRecord
   def created_today?
     created_at.all_day == Time.current.all_day
   end
+
+  def updated_today?
+    updated_at.all_day == Time.current.all_day
+  end
+
+  def been_edited?
+    created_at != updated_at
+  end
 end
