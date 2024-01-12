@@ -4,11 +4,12 @@ class PostsController < ApplicationController
   def index
     return unless user_signed_in?
 
-    @posts = Post.where(user_id: current_user.followees).or(Post.where(user_id: current_user))
+    @posts = Post.includes(:user).where(user_id: current_user.followees)
+                 .or(Post.includes(:user).where(user_id: current_user))
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.includes(:user).find(params[:id])
   end
 
   def new
