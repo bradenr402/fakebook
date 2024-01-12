@@ -13,7 +13,13 @@
           <%= link_to post.user.name, post.user, class: 'username' %>
         </div>
         <div class="posted-time">
-          <span class="timestamp"><%= formatted_datetime(post.created_at) %></span>
+          <span class="timestamp">
+            <% if post.created_today? %>
+              <%= formatted_time(post.created_at) %>
+            <% else %>
+              <%= formatted_datetime(post.created_at) %>
+            <% end %>
+          </span>
         </div>
       </div>
     </div>
