@@ -116,7 +116,6 @@ GEM
       mime-types (>= 1.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    gravtastic (3.2.6)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.2.3)
@@ -264,7 +263,6 @@ DEPENDENCIES
   devise (~> 4.9)
   faker (~> 3.2)
   file_validators (~> 3.0)
-  gravtastic
   importmap-rails
   jbuilder
   pg (~> 1.1)
