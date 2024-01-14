@@ -1,4 +1,6 @@
 class FollowRequestsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @requests = FollowRequest.all
   end
