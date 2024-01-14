@@ -1,12 +1,5 @@
-<h1>Posts</h1>
-
-<% if @posts.any? %>
 <div id="posts">
   <% @posts.each do |post| %>
     <%= render 'post_link', post: post %>
   <% end %>
 </div>
-<% else %>
-  <p>No posts yet.</p>
-  <%= link_to 'New Post', new_post_path %>
-<% end %>

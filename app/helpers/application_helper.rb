@@ -8,6 +8,10 @@ module ApplicationHelper
   end
 
   def formatted_datetime(datetime)
-    datetime.strftime('%B %e, %Y at %l:%M%P')
+    if datetime.all_day == Time.current.all_day
+      datetime.strftime('today at %l:%M%P')
+    else
+      datetime.strftime('%B %e, %Y at %l:%M%P')
+    end
   end
 end

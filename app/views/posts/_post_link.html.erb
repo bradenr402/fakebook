@@ -12,6 +12,10 @@
         <div class="username">
           <%= link_to post.user.name, post.user, class: 'username' %>
         </div>
+
+
+
+
         <div class="posted-time">
           <% if post.been_edited? %>
             <% if post.created_today? %>
@@ -39,11 +43,15 @@
             </span>
           <% end %>
         </div>
+
+
+
+
       </div>
     </div>
     <%= link_to post, class: 'post-link' do %>
       <div class="body">
-        <%= post.body.truncate(90) %>
+        <%= post.body %>
       </div>
     <% end %>
     <div class="like-btn">

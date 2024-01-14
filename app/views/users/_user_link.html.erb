@@ -3,7 +3,6 @@
     <h1><%= link_to user.name, user %></h1>
     <p><%= user.email %></p>
 
-    <%= render 'shared/stats' %>
     <div>
       <% if user == current_user %>
         <% if current_user.follow_requests.any?(&:pending?) %>

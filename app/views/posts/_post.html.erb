@@ -14,28 +14,12 @@
         </div>
         <div class="posted-time">
           <% if post.been_edited? %>
-            <% if post.created_today? %>
-              <span class="timestamp tooltip" data-text='edited: <%= formatted_time(post.updated_at) %>'>
-                <%= formatted_time(post.created_at) %>
-              </span>
-            <% else %>
-              <% if post.updated_today? %>
-                <span class="timestamp tooltip" data-text='edited: today at <%= formatted_time(post.updated_at) %>'>
-                  <%= formatted_datetime(post.created_at) %>
-                </span>
-              <% else %>
-                <span class="timestamp tooltip" data-text='edited: <%= formatted_datetime(post.updated_at) %>'>
-                  <%= formatted_datetime(post.created_at) %>
-                </span>
-              <% end %>
-            <% end %>
+            <span class="timestamp tooltip" data-text='edited: <%= formatted_datetime(post.updated_at) %>'>
+              <%= formatted_datetime(post.created_at) %>
+            </span>
           <% else %>
             <span class="timestamp">
-              <% if post.created_today? %>
-                <%= formatted_time(post.created_at) %>
-              <% else %>
-                <%= formatted_datetime(post.created_at) %>
-              <% end %>
+              <%= formatted_datetime(post.created_at) %>
             </span>
           <% end %>
         </div>

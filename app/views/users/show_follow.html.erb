@@ -1,14 +1,11 @@
-<h1><%= @user.name %></h1>
-
-<p><%= link_to 'View my profile', @user %></p>
-<span><strong>Posts:</strong> <%= @user.posts.count %></span>
-
-<%= render 'shared/stats' %>
+<%= render @user %>
 
 <h3><%= @title %></h3>
 
 <% if @users.any? %>
-  <ul class="users">
-    <%= render @users %>
-  </ul>
+    <div class="all-users">
+      <% @users.each do |user| %>
+        <%= render 'user_link', user: user %>
+      <% end %>
+    </div>
 <% end %>
