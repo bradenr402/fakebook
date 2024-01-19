@@ -4,17 +4,25 @@
   <!-- Link to home feed -->
   <% if current_page?(root_path) || current_page?(posts_path) %>
     <%= link_to root_path, class: 'flex items-center gap-2 font-medium text-gray-700 dark:text-gray-300 default-transition pl-3.5 pr-4 py-2.5 bg-gray-200 dark:bg-slate-800 focus:outline-none focus:ring-0 rounded-md' do %>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 align-middle" fill="currentColor">
-        <g data-name="Layer 2"><g data-name="home"><rect width="24" height="24" opacity="0"/><rect x="10" y="14" width="4" height="7"/>
-        <path d="M20.42 10.18L12.71 2.3a1 1 0 0 0-1.42 0l-7.71 7.89A2 2 0 0 0 3 11.62V20a2 2 0 0 0 1.89 2H8v-9a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v9h3.11A2 2 0 0 0 21 20v-8.38a2.07 2.07 0 0 0-.58-1.44z"/>
+      <svg
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:svg="http://www.w3.org/2000/svg"
+        class="w-5 h-5 align-middle"
+        fill="currentColor">
+        <path d="M 20.42,10.18 12.71,2.3 C 12.318823,1.9056022 11.681177,1.9056022 11.29,2.3 L 3.58,10.19 C 3.2031553,10.569885 2.994253,11.084938 3,11.62 V 20 c -0.00161,1.063 0.8286079,1.941536 1.89,2 0,0 2.0733333,0 3.11,0 0.5481751,0 1,-0.45492 1,-1 0,-0.427414 0,-7.273658 0,-7.273658 0,-0.552285 0.4477153,-1 1,-1 h 4 c 0.552285,0 1,0.447715 1,1 V 21 c 0,0.554201 0.44844,1 1,1 h 3.11 c 1.061392,-0.05846 1.891609,-0.937 1.89,-2 v -8.38 c 7.93e-4,-0.537066 -0.207181,-1.053416 -0.58,-1.44 z"/>
       </svg>
       Home
     <% end %>
   <% else %>
     <%= link_to root_path, class: 'flex items-center gap-2 font-medium text-gray-700 dark:text-gray-300 default-transition pl-3.5 pr-4 py-2.5 hover:bg-gray-200 dark:hover:bg-slate-800 focus:bg-gray-200 dark:focus:bg-slate-800 focus:outline-none focus:ring-0 rounded-md' do %>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 align-middle" fill="currentColor">
-        <g data-name="Layer 2"><g data-name="home"><rect width="24" height="24" opacity="0"/><rect x="10" y="14" width="4" height="7"/>
-        <path d="M20.42 10.18L12.71 2.3a1 1 0 0 0-1.42 0l-7.71 7.89A2 2 0 0 0 3 11.62V20a2 2 0 0 0 1.89 2H8v-9a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v9h3.11A2 2 0 0 0 21 20v-8.38a2.07 2.07 0 0 0-.58-1.44z"/>
+      <svg
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:svg="http://www.w3.org/2000/svg"
+        class="w-5 h-5 align-middle"
+        fill="currentColor">
+        <path d="M 20.42,10.18 12.71,2.3 C 12.318823,1.9056022 11.681177,1.9056022 11.29,2.3 L 3.58,10.19 C 3.2031553,10.569885 2.994253,11.084938 3,11.62 V 20 c -0.00161,1.063 0.8286079,1.941536 1.89,2 0,0 2.0733333,0 3.11,0 0.5481751,0 1,-0.45492 1,-1 0,-0.427414 0,-7.273658 0,-7.273658 0,-0.552285 0.4477153,-1 1,-1 h 4 c 0.552285,0 1,0.447715 1,1 V 21 c 0,0.554201 0.44844,1 1,1 h 3.11 c 1.061392,-0.05846 1.891609,-0.937 1.89,-2 v -8.38 c 7.93e-4,-0.537066 -0.207181,-1.053416 -0.58,-1.44 z"/>
       </svg>
       Home
     <% end %>
