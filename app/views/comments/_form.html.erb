@@ -1,7 +1,7 @@
 <%= form_with model: [ @post, @post.comments.build ] do |f| %>
   <%= f.label :body, 'Add a comment:', class: 'block ml-5 mb-3' %>
   <div class="flex items-center justify-center w-full">
-    <%= f.text_area :body, size: '40x7', class: 'default-transition block p-4 mb-6 w-[95%] bg-white rounded-lg border border-zinc-800 border-opacity-25 focus:ring-1 focus:ring-blue-500 shadow-sm focus:shadow-lg focus:scale-105' %>
+    <%= f.text_area :body, size: '40x7', placeholder: 'Say something...', class: 'default-transition block p-4 mb-6 w-[95%] bg-white dark:bg-slate-800 rounded-lg border border-zinc-800 border-opacity-25 focus:ring-1 focus:ring-blue-500 shadow-sm focus:shadow-lg focus:scale-105 resize-none' %>
   </div>
 
   <div class="flex w-full">

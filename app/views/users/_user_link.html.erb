@@ -24,9 +24,9 @@
 
   <div class="profile-image shrink-0">
     <% if user.avatar.attached? %>
-      <%= link_to image_tag(user.avatar, class: 'align-middle h-40 w-40 object-cover rounded-full border-4 border-white shadow-lg'), user %>
+      <%= link_to image_tag(user.avatar, class: 'align-middle h-40 w-40 object-cover rounded-full border-2 border-slate-100 dark:border-slate-900 shadow-lg'), user %>
     <% else %>
-      <%= link_to image_tag('default-avatar.png', class: 'align-middle h-40 w-40 object-cover rounded-full border-4 border-white shadow-lg'), user %>
+      <%= link_to image_tag('default-avatar.png', class: 'align-middle h-40 w-40 object-cover rounded-full border-2 border-slate-100 dark:border-slate-900 shadow-lg'), user %>
     <% end %>
   </div>
 </div>

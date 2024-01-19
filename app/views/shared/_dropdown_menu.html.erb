@@ -1,0 +1,37 @@
+<div class="relative inline-block text-left ml-auto">
+  <div class="group">
+    <button type="button" class="inline-flex justify-center items-center w-full px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-slate-300 bg-white dark:bg-slate-800 default-transition hover:bg-gray-200 dark:hover:bg-slate-800 focus:bg-gray-200 dark:focus:bg-slate-800 focus:outline-none border border-zinc-800 border-opacity-10 rounded-md shadow hover:cursor-default">
+      Options
+      <!-- Dropdown arrow -->
+      <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+    </button>
+
+  <!-- Dropdown menu -->
+    <div class="absolute right-0 mt-2 origin-top-left bg-white dark:bg-slate-800 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible default-transition">
+      <div class="p-2">
+        <div class="mb-2 pl-3 pr-4 py-2 text-gray-700 dark:text-slate-300 default-transition hover:bg-gray-200 dark:hover:bg-slate-700 focus:bg-gray-200 dark:focus:bg-slate-700 focus:outline-none rounded-md">
+          <%= link_to user_path(current_user), class: 'focus:bg-gray-200 focus:outline-none flex items-center w-max' do %>
+
+            <% if current_user.avatar.attached? %>
+              <%= image_tag(current_user.avatar, class: 'h-12 w-12 mr-3 align-middle object-cover rounded-full shadow-lg') %>
+            <% end %>
+
+            <div>
+              <span class="block text-sm font-semibold"><%= current_user.name %></span>
+              <span class="block text-sm"><%= current_user.email %></span>
+            </div>
+          <% end %>
+        </div>
+
+        <!-- Menu item divider -->
+        <div class="my-2">
+          <div class="border-b border-opacity-10 dark:border-opacity-10 border-slate-900 dark:border-slate-50 mx-1"></div>
+        </div>
+
+        <%= render 'shared/dark_mode_toggle' %>
+        <%= link_to 'Edit account', edit_user_registration_path, class: 'block px-4 py-2 text-sm text-gray-700 dark:text-slate-300 default-transition hover:bg-gray-200 dark:hover:bg-slate-700 focus:bg-gray-200 dark:focus:bg-slate-700 focus:outline-none rounded' %>
+        <%= link_to 'Sign out', sign_out_path, method: :delete, class: 'block px-4 py-2 text-sm text-gray-700 dark:text-slate-300 default-transition hover:bg-gray-200 dark:hover:bg-slate-700 focus:bg-gray-200 dark:focus:bg-slate-700 focus:outline-none rounded' %>
+      </div>
+    </div>
+  </div>
+</div>
