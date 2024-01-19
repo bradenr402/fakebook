@@ -1,3 +1,8 @@
+<div class="w-full items-center justify-items-center mb-5 new-post">
+  <h2 class="ml-5 mb-4 font-medium">Hey, <%= current_user.name.split(' ').first %>! What's on your mind?</h2>
+  <%= render 'posts/form', post: @post = Post.new %>
+</div>
+
 <div id="posts">
   <% @posts.each do |post| %>
     <%= render 'post_link', post: post %>

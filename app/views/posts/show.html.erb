@@ -6,8 +6,8 @@
 
 <% if @post.user == current_user %>
 <div>
-  <%= link_to 'Edit this post', edit_post_path(@post) %>
-  <%= link_to 'Delete this post', post_path(@post), data:
+  <%= link_to 'Edit post', edit_post_path(@post), class: 'btn-blue font-medium px-6 py-2 mr-5 ml-auto' %>
+  <%= link_to 'Delete post', post_path(@post), class: 'btn-red font-medium px-6 py-2 mr-5 ml-auto', data:
   {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
@@ -15,9 +15,13 @@
 </div>
 <% end %>
 
-<h3>Comments</h3>
-<ul>
-  <%= render @post.comments %>
-</ul>
+<h2 class="ml-5 mt-8 mb-4">Comments</h2>
+<% if @post.comments.blank? %>
+  <p class="text-sm text-gray-500 ml-10 mb-4">There are no comments on this post yet.</p>
+<% else %>
+  <ul>
+    <%= render @post.comments %>
+  </ul>
+<% end%>
 
 <%= render 'comments/form' %>

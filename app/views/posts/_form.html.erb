@@ -1,13 +1,17 @@
 <%= form_with model: @post do |f| %>
-  <div>
+  <div class="flex items-center justify-center w-full">
     <%= f.label :body, 'Post', class: 'sr-only' %>
-    <%= f.text_area :body, size: '40x7', autofocus: true %>
+    <%= f.text_area :body, size: '40x7', autofocus: (current_page?(new_post_path)), placeholder: 'Say something...', class: 'default-transition block p-4 mb-6 w-[95%] bg-white rounded-lg border border-zinc-800 border-opacity-10 focus:ring-0 focus:ring-blue-500 shadow-sm focus:shadow-lg focus:scale-105' %>
     <% @post.errors.full_messages_for(:body).each do |msg| %>
       <div><%= msg %></div>
     <% end %>
   </div>
 
-  <div>
-    <%= f.submit %>
+  <div class="flex w-full">
+    <% if params[:controller] == 'posts' && params[:action] == 'edit' %>
+      <%= f.submit 'Update', class: 'btn-blue font-medium text-lg px-6 py-2 mr-5 ml-auto hover:shadow-lg' %>
+    <% else %>
+      <%= f.submit 'Post', class: 'btn-blue font-medium text-lg px-6 py-2 mr-5 ml-auto hover:shadow-lg' %>
+    <% end %>
   </div>
 <% end %>

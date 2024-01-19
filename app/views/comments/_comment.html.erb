@@ -1,11 +1,25 @@
-<li>
-  <strong><%= comment.user.name %></strong> says:
-  "<%= comment.body %>"
-  <% if current_user == comment.user %>
-    <%= link_to 'Delete Comment', [comment.post, comment], data: {
-                  turbo_method: :delete,
-                  turbo_confirm: "Are your sure?"} %>
-  <% end %>
-  <br>
-  <%= render partial: 'likes/button', locals: { likeable: comment } %>
-</li>
+<div class="post-frame">
+  <div class="flex items-center">
+    <div>
+      <% if comment.user.avatar.attached? %>
+        <%= link_to image_tag(comment.user.avatar, class: 'h-12 w-12 mr-3 align-middle object-cover rounded-full border-4 border-white shadow-lg'), comment.user %>
+      <% else %>
+        <%= link_to image_tag('default-avatar.png', class: 'h-12 w-12 mr-3 align-middle object-cover rounded-full border-4 border-white shadow-lg'), comment.user %>
+      <% end %>
+    </div>
+    <div>
+      <div class="mt-2 flex-col gap-3 text-md leading-tight">
+        <%= link_to comment.user.name, comment.user, class: '' %>
+      </div>
+      <span class="text-sky-500 text-xs">
+        <%= formatted_datetime(comment.created_at) %>
+      </span>
+    </div>
+  </div>
+  <div class="my-5 mx-4">
+    <span class=""><%= comment.body %></span>
+  </div>
+  <div>
+    <%= render partial: 'likes/button', locals: { likeable: comment } %>
+  </div>
+</div>

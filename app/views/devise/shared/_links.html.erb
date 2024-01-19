@@ -1,13 +1,27 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name) %><br />
-<% end %>
+  <div class="flex items-center flex-col gap-1 w-full mb-4 -mt-4">
+    <div class="text-center text-sm border border-zin-800 border-opacity-15 translate-y-4 bg-white text-gray-600 rounded px-1.5">OR</div>
+    <div class="border-b border-zinc-800 border-opacity-15 w-full"></div>
+  </div>
 
-<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+  <p class="text-xs w-full text-center text-gray-600 mb-4">Already have an account?</p>
+  <%= link_to "Log In", new_session_path(resource_name), class: 'block btn-green text-center px-2.5 py-2.5 rounded-md font-medium focus:ring-[#236c5b] focus:ring-2 outline-none border-2 border-transparent focus:border-white' %>
 <% end %>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+  <div class="flex items-center justify-center">
+    <%= link_to "Forgot password?", new_password_path(resource_name), class: 'default-transition block text-xs text-center text-gray-600 -mb-2 -mt-2 border-2 border-transparent focus:border-blue-500 focus:ring-0 outline-none rounded w-fit px-2 py-1' %>
+  </div>
+<% end %>
+
+<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  <div class="flex items-center flex-col gap-1 w-full mb-6">
+    <div class="text-center text-sm border border-zin-800 border-opacity-15 translate-y-4 bg-white text-gray-600 rounded px-1.5">OR</div>
+    <div class="border-b border-zinc-800 border-opacity-15 w-full"></div>
+  </div>
+
+  <p class="text-xs w-full text-center text-gray-600 mb-4">Don't have an account yet?</p>
+  <%= link_to "Create New Account", new_registration_path(resource_name), class: 'block btn-green text-center px-2.5 py-2.5 rounded-md font-medium focus:ring-[#236c5b] focus:ring-2 outline-none border-2 border-transparent focus:border-white' %>
 <% end %>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>

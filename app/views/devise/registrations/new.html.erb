@@ -1,34 +1,42 @@
-<h2>Sign up</h2>
+<h1 class="font-bold m-6 text-4xl text-blue-500">FakeBook</h1>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
+  <h1 class="font-bold text-center mb-4 text-3xl text-blue-500">Sign Up</h1>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
+  <div class="bg-white border border-zinc-800 border-opacity-10 p-8 shadow-xl rounded-lg ml-auto mr-auto w-2/5 max-w-96 min-w-80">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :name, class: 'sr-only' %>
+        <%= f.text_field :name, autofocus: true, placeholder: 'Username', class: 'default-transition block px-2.5 pb-2.5 pt-4 w-full mb-4 text-sm bg-transparent rounded-md border border-zinc-800 border-opacity-15 focus:ring-1 focus:ring-blue-500' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email, 'Email address', class: 'sr-only' %>
+        <%= f.email_field :email, autocomplete: "email", placeholder: 'Email address', class: 'default-transition block px-2.5 pb-2.5 pt-4 w-full mb-4 text-sm bg-transparent rounded-md border border-zinc-800 border-opacity-15 focus:ring-1 focus:ring-blue-500' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password, class: 'sr-only' %>
+        <% if @minimum_password_length %>
+        <em class="text-sm text-gray-500">(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %>
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: 'Password', class: 'default-transition block px-2.5 pb-2.5 pt-4 w-full mb-4 text-sm bg-transparent rounded-md border border-zinc-800 border-opacity-15 focus:ring-1 focus:ring-blue-500' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation, class: 'sr-only' %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'Confirm Password', class: 'default-transition block px-2.5 pb-2.5 pt-4 w-full mb-4 text-sm bg-transparent rounded-md border border-zinc-800 border-opacity-15 focus:ring-1 focus:ring-blue-500' %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Create Account", class: 'btn-primary bg-blue-500 text-gray-50 font-medium rounded-md w-full px-2.5 py-2.5 mb-4 focus:ring-blue-500 focus:ring-2 outline-none border-2 border-transparent focus:border-white' %>
+      </div>
+
+    <% end %>
+    <%= render "devise/shared/links" %>
+
   </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

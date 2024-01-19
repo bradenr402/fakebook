@@ -1,35 +1,33 @@
-<div class="post">
-  <%# <div class="frame"> %>
-    <div class="post-header">
-      <div class="profile-image thumb">
-        <% if post.user.avatar.attached? %>
-          <%= link_to image_tag(post.user.avatar, class: 'avatar'), post.user %>
+<div class="post-frame">
+  <div class=" flex items-start">
+    <div class="profile-image thumb">
+      <% if post.user.avatar.attached? %>
+        <%= link_to image_tag(post.user.avatar, class: 'h-16 w-16 mr-3 align-middle object-cover rounded-full border-4 border-white shadow-lg'), post.user %>
+      <% else %>
+        <%= link_to image_tag('default-avatar.png', class: 'h-16 w-16 mr-3 align-middle object-cover rounded-full border-4 border-white shadow-lg'), post.user %>
+      <% end %>
+    </div>
+    <div class="post-info">
+      <div class="mt-2 gap-3 text-xl leading-tight">
+        <%= link_to post.user.name, post.user %>
+      </div>
+      <div class="posted-time">
+        <% if post.been_edited? %>
+          <span class="text-sky-500 text-sm relative border-b border-dashed border-black cursor-default before:z-10 before:content-[attr(data-text)] before:absolute before:top-[100%] before:mt-[1.15rem] before:left-[50%] before:-translate-x-2/4 before:w-max before:py-1.5 before:px-2.5 before:rounded-md before:bg-black before:text-white before:text-center before:text-sm before:invisible before:opacity-0 before:duration-200 before:transition-opacity before:ease-linear hover:before:z-10 hover:before:visible hover:before:opacity-100 after:z-10 after:absolute after:top-full after:mt-[0.26rem] after:left-[50%] after:-translate-x-1/2 after:border-8 after:border-t-transparent after:border-r-transparent after:border-l-transparent after:border-b-black after:invisible after:opacity-0 after:duration-200 after:transition-opacity after:ease-linear hover:after:z-10 hover:after:visible hover:after:opacity-100" data-text='edited: <%= formatted_datetime(post.updated_at) %>'>
+            <%= formatted_datetime(post.created_at) %>
+          </span>
         <% else %>
-          <%= link_to image_tag('default-avatar.png', class: 'avatar'), post.user %>
+          <span class="text-sky-500 text-sm">
+            <%= formatted_datetime(post.created_at) %>
+          </span>
         <% end %>
       </div>
-      <div class="post-info">
-        <div class="username">
-          <%= link_to post.user.name, post.user, class: 'username' %>
-        </div>
-        <div class="posted-time">
-          <% if post.been_edited? %>
-            <span class="timestamp tooltip" data-text='edited: <%= formatted_datetime(post.updated_at) %>'>
-              <%= formatted_datetime(post.created_at) %>
-            </span>
-          <% else %>
-            <span class="timestamp">
-              <%= formatted_datetime(post.created_at) %>
-            </span>
-          <% end %>
-        </div>
-      </div>
     </div>
-    <div class="body">
-      <span><%= post.body %></span>
-    </div>
-    <div class="like-btn">
-      <%= render partial: 'likes/button', locals: { likeable: post } %>
-    </div>
-  <%# </div> %>
+  </div>
+  <div class="my-5 mx-4">
+    <span><%= post.body %></span>
+  </div>
+  <div>
+    <%= render partial: 'likes/button', locals: { likeable: post } %>
+  </div>
 </div>

@@ -2,12 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
+
 
 @layer components {
+  .default-transition {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
   .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
+    @apply py-1 px-4 rounded text-sm cursor-pointer default-transition hover:shadow active:shadow-inner;
+  }
+
+  .btn-blue {
+    @apply btn-primary bg-[#caf0f8] text-[#03045e] active:border-[#03045e];
+  }
+
+  .btn-green {
+    @apply btn-primary bg-[#98f5e1] text-[#236c5b] active:border-[#236c5b];
+  }
+
+  .btn-red {
+    @apply btn-primary bg-[#fad2e1] text-[#7c193d] active:border-[#7c193d];
+  }
+
+  .post-frame {
+    @apply bg-white p-2.5 rounded-lg border border-zinc-800 border-opacity-10 shadow-sm mb-5;
+  }
+
+  .profile-card {
+    @apply flex flex-row-reverse gap-8 items-center justify-end bg-white border border-zinc-800 border-opacity-10 p-8 drop-shadow rounded-lg mb-5;
   }
 }
 
-*/
+@layer base {
+  h1 {
+    @apply text-2xl;
+  }
+
+  h2 {
+    @apply text-xl;
+  }
+
+  h3 {
+    @apply text-lg
+  }
+}

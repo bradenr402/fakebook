@@ -2,8 +2,6 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    return unless user_signed_in?
-
     @posts = Post.includes(:user).where(user_id: current_user.followees)
                  .or(Post.includes(:user).where(user_id: current_user))
   end
@@ -48,7 +46,12 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
 
-    redirect_to root_url, status: :see_other
+    redirect_to root_path, status: :see_other
+  end
+
+  def discover
+    @posts = Post.all
+    render :index
   end
 
   private

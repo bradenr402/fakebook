@@ -28,6 +28,8 @@ Rails.application.routes.draw do
   post 'follow_requests/:id/accept', to: 'follow_requests#accept', as: 'accept_request'
   post 'follow_requests/:id/decline', to: 'follow_requests#decline', as: 'decline_request'
 
+  get 'discover', to: 'posts#discover', as: 'discover_feed'
+
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get 'up' => 'rails/health#show', as: :rails_health_check

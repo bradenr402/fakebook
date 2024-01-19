@@ -1,7 +1,14 @@
-<li class="follow_request">
-  <% if follow_request.pending? %>
-    <%= link_to follow_request.follower.name, user_path(follow_request.follower) %>
-    <%= button_to 'Accept', accept_request_path(follow_request) %>
-    <%= button_to 'Decline', decline_request_path(follow_request) %>
-  <% end %>
-</li>
+<% if follow_request.pending? %>
+  <li class="flex gap-2 items-center bg-white px-4 py-2 rounded-lg overflow-hidden border border-zinc-800 border-opacity-10 shadow-sm w-full">
+      <% if follow_request.follower.avatar.attached? %>
+        <%= link_to image_tag(follow_request.follower.avatar, class: 'h-12 w-12 align-middle object-cover rounded-full border-4 border-white shadow-lg'), follow_request.follower %>
+      <% else %>
+        <%= link_to image_tag('default-avatar.png', class: 'h-12 w-12 align-middle object-cover rounded-full border-2 border-white shadow-lg'), follow_request.follower %>
+      <% end %>
+      <%= link_to follow_request.follower.name, user_path(follow_request.follower), class: 'font-semibold ml-2' %>
+      <div class="flex gap-2 items-center justify-end ml-auto">
+        <%= button_to 'Accept', accept_request_path(follow_request), class: 'btn-blue' %>
+        <%= button_to 'Decline', decline_request_path(follow_request), class: 'btn-red' %>
+    </div>
+  </li>
+<% end %>

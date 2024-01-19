@@ -2,14 +2,13 @@ class LikesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @like = current_user.likes.new(like_params)
-    @like.save
+    @like = current_user.likes.create(like_params)
     redirect_back(fallback_location: root_path)
   end
 
   def destroy
-    @like = current_user.likes.find(params[:id])
-    @like.destroy
+    current_user.likes.find(params[:id])&.destroy
+
     redirect_back(fallback_location: root_path)
   end
 

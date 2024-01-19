@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="">
   <head>
     <title>Fakebook</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -11,28 +11,40 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="font-sans bg-gray-100 text-zinc-800">
     <% if alert %>
-    <div class="alert">
-      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <div class="p-5 shadow-xl rounded-lg bg-[#fad2e1] text-[#7c193d] absolute top-10 left-1/2 -translate-x-1/2 z-50">
+      <span class="ml-4 font-bold float-right text-2xl leading-none cursor-pointer duration-300 hover:text-black" onclick="this.parentElement.style.display='none';">&times;</span>
       <%= alert %>
     </div>
     <% end %>
 
     <% if notice %>
-    <div class="notice">
-      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <div class="p-5 shadow-xl rounded-lg bg-[#98f5e1] text-[#236c5b] absolute top-10 left-1/2 -translate-x-1/2 z-50">
+      <span class="ml-4 font-bold float-right text-2xl leading-none cursor-pointer duration-300 hover:text-black" onclick="this.parentElement.style.display='none';">&times;</span>
       <%= notice %>
     </div>
     <% end %>
 
-    <div class="container">
-      <aside>
+    <% if user_signed_in? %>
+      <aside class="sticky top-0 py-4 w-full bg-gray-100 backdrop-blur bg-opacity-70 border-b-2 border-zinc-800 border-opacity-10 z-10">
         <%= render 'shared/nav' %>
       </aside>
-      <main>
-        <%= yield %>
-      </main>
-    </div>
+
+      <% unless current_page?(new_post_path) || true %>
+        <%= link_to new_post_path, class: 'btn-primary bg-blue-500 h-14 w-max px-4 rounded-lg text-base font-medium inline-flex items-center justify-between shadow-md default-transition hover:shadow-lg fixed left-10 bottom-10' do %>
+          <svg class="w-6 h-6 mr-3 text-gray-50" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-square"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+          <span class="text-gray-50">New Post</span>
+        <% end %>
+      <% end %>
+
+      <div class="grid grid-cols-12 gap-5">
+        <main class="py-12 lg:col-start-4 lg:col-end-10 md:col-start-3 md:col-end-11 sm:col-start-2 sm:col-end-12">
+          <%= yield %>
+        </main>
+      </div>
+    <% else %>
+      <%= yield %>
+    <% end %>
   </body>
 </html>

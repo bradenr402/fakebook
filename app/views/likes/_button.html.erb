@@ -1,11 +1,11 @@
 <% like = current_user.likes.find_by(likeable: likeable) %>
-<div class="likes">
+<div class="flex items-center w-fit gap-2.5" id="<%= dom_id(like, likeable[:id]) unless like.nil? %>">
   <% if like.nil? %>
-    <%= button_to 'Like', likes_path, class: 'btn btn-like',
+    <%= button_to 'Like', likes_path, class: 'btn-green',
                   params: { like: { likeable_id: likeable.id,
                                     likeable_type: likeable.class.to_s}}%>
   <% else %>
-    <%= button_to 'Unlike', like_path(like), class: 'btn btn-unlike', method: :delete %>
+    <%= button_to 'Unlike', like_path(like), class: 'btn-red', method: :delete %>
   <% end %>
 
   <span><%= pluralize(likeable.likes.count, 'like') %></span>

@@ -1,6 +1,20 @@
 <%= render @user %>
 
-<h2>Posts</h2>
+<% if @user == current_user && current_user.follow_requests.any?(&:pending?) %>
+  <h2 class="ml-5 mt-8 mb-4 font-medium">Follow Requests</h2>
+  <ul class="mb-5 grid grid-cols-2 gap-2">
+    <%= render current_user.follow_requests %>
+  </ul>
+<% end %>
+
+<% if @user == current_user %>
+  <div class="w-full items-center justify-items-center">
+    <h2 class="ml-5 mt-8 mb-4 font-medium">What's on your mind?</h2>
+    <%= render 'posts/form', post: @post = Post.new %>
+  </div>
+<% end %>
+
+<h2 class="ml-5 mt-8 mb-4 font-medium">Posts</h2>
 
 <div id="posts">
   <% @user.posts.each do |post| %>
