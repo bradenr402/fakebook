@@ -17,7 +17,7 @@
 
 <h2 class="ml-5 mt-8 mb-4">Comments</h2>
 <% if @post.comments.blank? %>
-  <p class="text-sm text-gray-500 ml-10 mb-4">There are no comments on this post yet.</p>
+  <p class="text-sm text-gray-500 mb-4 text-center">There are no comments on this post yet. Leave a comment below!</p>
 <% else %>
   <ul>
     <%= render @post.comments %>

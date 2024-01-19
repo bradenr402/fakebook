@@ -1,60 +1,77 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="flex flex-col items-center w-full">
+  <h1 class="font-bold text-center mb-4 text-3xl text-blue-500">Edit Account</h1>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-
-  <!--Avatar Upload Field-->
-  <div class="field">
-    <%= f.label :avatar %>
-    <% if current_user.avatar.present? %><br>
-      Current: <%= current_user.avatar.filename.to_s %>
-    <% end %>
-    <%= f.file_field :avatar %>
-  </div>
-  <!--Avatar Upload Field-->
+  <div class="bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-zinc-800 border-opacity-10 p-8 drop-shadow-xl rounded-lg w-96">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
+      <!-- Avatar Upload Field -->
+      <div class="field mb-4 flex flex-col items-center" data-controller="image-preview">
+        <%= f.label :avatar, "Upload profile photo", class: 'rounded-full inline-block cursor-pointer default-transition group relative' do %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
-  </div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-24 h-24 text-gray-100 default-transition opacity-0 group-hover:opacity-100 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50">
+          <path d="M18 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3zM6 5h12a1 1 0 0 1 1 1v8.36l-3.2-2.73a2.77 2.77 0 0 0-3.52 0L5 17.7V6a1 1 0 0 1 1-1z"/>
+          <circle cx="8" cy="8.5" r="1.5"/>
+        </svg>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% if current_user.avatar.attached? %>
+          <%= image_tag(current_user.avatar, width: '100px', height: '100px', data: { target: 'image-preview.output' }, class: 'group-hover:brightness-50 default-transition ml-auto mr-auto align-middle h-40 w-40 object-cover rounded-full border-2 border-slate-100 dark:border-slate-900 shadow-lg') %>
+        <% else %>
+          <%= image_tag('default-avatar.png', width: '100px', height: '100px', data: { target: 'image-preview.output' }, class: 'group-hover:brightness-50 default-transition ml-auto mr-auto align-middle h-40 w-40 object-cover rounded-full border-2 border-slate-100 dark:border-slate-900 shadow-lg') %>
+        <% end %>
   <% end %>
+        <%= f.file_field :avatar, accept: 'image/jpeg, image/png', class: 'hidden', data: { target: 'image-preview.input', action: 'image-preview#readURL' } %>
+      </div>
+      <!-- Avatar Upload Field End -->
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+
+      <div class="field mb-4">
+        <%= f.label :name, 'Username', class: '' %>
+        <%= f.text_field :name, placeholder: 'Username', class: 'dark:bg-slate-700 dark:bg-opacity-75 default-transition block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-md border border-zinc-800 border-opacity-15 focus:ring-1 focus:ring-blue-500' %>
+      </div>
+
+      <div class="field mb-4">
+        <%= f.label :email, 'Email address', class: '' %>
+        <%= f.email_field :email, autocomplete: "email", placeholder: 'Email address', class: 'dark:bg-slate-700 dark:bg-opacity-75 default-transition block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-md border border-zinc-800 border-opacity-15 focus:ring-1 focus:ring-blue-500' %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div class="field mb-4">
+        <%= f.label :password, 'New password' %>
+        <% if @minimum_password_length %>
+          <em class="block text-sm text-gray-500 dark:text-gray-400"><%= @minimum_password_length %> characters minimum</em>
+        <% end %>
+        <i class="block text-sm text-gray-500 dark:text-gray-400">(leave blank if you don't want to change it)</i>
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: 'Password', class: 'dark:bg-slate-700 dark:bg-opacity-75 default-transition block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-md border border-zinc-800 border-opacity-15 focus:ring-1 focus:ring-blue-500' %>
+      </div>
+
+      <div class="field mb-4">
+        <%= f.label :password_confirmation, class: 'sr-only' %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'Confirm Password', class: 'dark:bg-slate-700 dark:bg-opacity-75 default-transition block px-2.5 pb-2.5 pt-4 w-full mb-4 text-sm bg-transparent rounded-md border border-zinc-800 border-opacity-15 focus:ring-1 focus:ring-blue-500' %>
+      </div>
+
+      <div class="field mb-4">
+        <%= f.label :current_password, 'Confirm changes', class: '' %>
+        <i class="block text-sm text-gray-500 dark:text-gray-400">(enter current password to confirm changes)</i>
+        <%= f.password_field :current_password, autocomplete: "current-password", placeholder: 'Current Password', class: 'dark:bg-slate-700 dark:bg-opacity-75 default-transition block px-2.5 pb-2.5 pt-4 w-full mb-4 text-sm bg-transparent rounded-md border border-zinc-800 border-opacity-15 focus:ring-1 focus:ring-blue-500' %>
+      </div>
+
+      <div class="actions mb-2">
+        <%= f.submit "Update", class: 'btn-primary bg-blue-500 text-gray-50 font-medium rounded-md w-full px-2.5 py-2.5 focus:ring-blue-500 focus:ring-2 outline-none border-2 border-transparent focus:border-white' %>
+      </div>
     <% end %>
+
+    <div class="flex items-center flex-col gap-1 w-full mb-6">
+      <div class="text-center text-sm border border-zinc-800 border-opacity-15 translate-y-4 bg-white dark:bg-slate-700 dark:bg-opacity-75 text-gray-600 dark:text-gray-400 rounded px-1.5">OR</div>
+      <div class="border-b border-zinc-800 dark:border-slate-700 border-opacity-15 dark:border-opacity-75 w-full"></div>
+    </div>
+
+    <p class="text-sm w-full text-center text-gray-600 dark:text-gray-400 mb-4">Unhappy?</p>
+    <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: 'block btn-red text-center px-2.5 py-2.5 w-full rounded-md font-medium focus:ring-[#fad2e1] focus:ring-2 outline-none border-2 border-transparent focus:border-white dark:focus:border-slate-800' %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
-
-<%= link_to "Back", :back %>
+</div>

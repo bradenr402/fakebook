@@ -8,8 +8,8 @@
 <% end %>
 
 <% if @user == current_user %>
-  <div class="w-full items-center justify-items-center">
-    <h2 class="ml-5 mt-8 mb-4 font-medium">What's on your mind?</h2>
+  <div class="w-full items-center mt-8 mb-5 rounded-lg">
+    <h2 class="ml-5 mb-4 font-medium">What's on your mind?</h2>
     <%= render 'posts/form', post: @post = Post.new %>
   </div>
 <% end %>
@@ -21,3 +21,13 @@
     <%= render 'posts/post_link', post: post %>
   <% end %>
 </div>
+
+<% if @posts.blank? %>
+  <p class="text-sm text-gray-500 mb-4 text-center"><%= @user.name.split(' ').first %> doesn't have any posts yet!</p>
+<% else %>
+  <div id="posts">
+    <% @user.posts.each do |post| %>
+      <%= render 'posts/post_link', post: post %>
+    <% end %>
+  </div>
+<% end%>

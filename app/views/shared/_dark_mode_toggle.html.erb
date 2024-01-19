@@ -1,35 +1,38 @@
 <button
   id="dark-mode-toggle"
   type="button"
-  class="w-full pl-3 text-gray-700 dark:text-slate-300 default-transition hover:bg-gray-200 focus:bg-gray-200 dark:hover:bg-slate-700 dark:focus:bg-slate-700 focus:outline-none focus:ring-0 rounded-lg text-sm p-2.5"
+  class="w-full text-gray-700 dark:text-slate-300 default-transition hover:bg-gray-200 focus:bg-gray-200 dark:hover:bg-slate-700 dark:focus:bg-slate-700 focus:outline-none focus:ring-0 rounded text-sm p-2.5"
   data-dark-mode-target="themeToggle"
   data-action="click->dark-mode#toggleTheme"
 >
   <div data-dark-mode-target="darkIcon" class="hidden flex gap-2">
     <svg
-      class="w-5 h-5"
-      fill="currentColor"
-      viewBox="0 0 20 20"
       xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      class="w-5 h-5 align-middle"
+      fill="currentColor"
     >
-      <path
-        d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
-      ></path>
+      <path d="M12.3 22h-.1a10.31 10.31 0 0 1-7.34-3.15 10.46 10.46 0 0 1-.26-14 10.13 10.13 0 0 1 4-2.74 1 1 0 0 1 1.06.22 1 1 0 0 1 .24 1 8.4 8.4 0 0 0 1.94 8.81 8.47 8.47 0 0 0 8.83 1.94 1 1 0 0 1 1.27 1.29A10.16 10.16 0 0 1 19.6 19a10.28 10.28 0 0 1-7.3 3z"/>
     </svg>
     Dark mode
   </div>
+
   <div data-dark-mode-target="lightIcon" class="hidden flex gap-2">
     <svg
-      class="w-5 h-5"
-      fill="currentColor"
-      viewBox="0 0 20 20"
       xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      class="w-5 h-5 align-middle"
+      fill="currentColor"
     >
-      <path
-        d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-        fill-rule="evenodd"
-        clip-rule="evenodd"
-      ></path>
+      <path d="M12 6a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v2a1 1 0 0 0 1 1z"/>
+      <path d="M21 11h-2a1 1 0 0 0 0 2h2a1 1 0 0 0 0-2z"/>
+      <path d="M6 12a1 1 0 0 0-1-1H3a1 1 0 0 0 0 2h2a1 1 0 0 0 1-1z"/>
+      <path d="M6.22 5a1 1 0 0 0-1.39 1.47l1.44 1.39a1 1 0 0 0 .73.28 1 1 0 0 0 .72-.31 1 1 0 0 0 0-1.41z"/>
+      <path d="M17 8.14a1 1 0 0 0 .69-.28l1.44-1.39A1 1 0 0 0 17.78 5l-1.44 1.42a1 1 0 0 0 0 1.41 1 1 0 0 0 .66.31z"/>
+      <path d="M12 18a1 1 0 0 0-1 1v2a1 1 0 0 0 2 0v-2a1 1 0 0 0-1-1z"/>
+      <path d="M17.73 16.14a1 1 0 0 0-1.39 1.44L17.78 19a1 1 0 0 0 .69.28 1 1 0 0 0 .72-.3 1 1 0 0 0 0-1.42z"/>
+      <path d="M6.27 16.14l-1.44 1.39a1 1 0 0 0 0 1.42 1 1 0 0 0 .72.3 1 1 0 0 0 .67-.25l1.44-1.39a1 1 0 0 0-1.39-1.44z"/>
+      <path d="M12 8a4 4 0 1 0 4 4 4 4 0 0 0-4-4z"/>
     </svg>
     Light mode
   </div>

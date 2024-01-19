@@ -1,10 +1,10 @@
-<div class="profile-card">
-  <div class="info">
-    <h1 class="my-3"><%= user.name %></h1>
-    <p class="my-3"><%= user.email %></p>
+<div class="profile-card flex-col-reverse w-max justify-center mx-auto">
+  <div class="info flex flex-col items-center justify-center gap-4">
+    <h1 class=""><%= user.name %></h1>
+    <p class="text-gray-600 dark:text-gray-400"><%= user.email %></p>
 
-    <%= render 'shared/stats' %>
-    <div class="my-3">
+
+    <div class="flex items-center justify-center gap-5">
       <% unless user == current_user %>
         <% if current_user.following?(user) %>
           <%= button_to 'Unfollow', unfollow_user_path(user), class: 'btn-red' %>
@@ -20,13 +20,15 @@
         <% end %>
       <% end %>
     </div>
+
   </div>
 
-  <div class="profile-image">
+  <div class="profile-image mx-auto">
     <% if user.avatar.attached? %>
-      <%= image_tag(user.avatar, class: 'align-middle h-40 w-40 object-cover rounded-full border-2 border-slate-100 dark:border-slate-900 shadow-lg') %>
+      <%= image_tag(user.avatar, class: 'align-middle h-40 w-40 object-cover rounded-full border-2 dark:border-slate-100 border-slate-900 shadow-lg') %>
     <% else %>
-      <%= image_tag('default-avatar.png', class: 'align-middle h-40 w-40 object-cover rounded-full border-2 border-slate-100 dark:border-slate-900 shadow-lg') %>
+      <%= image_tag('default-avatar.png', class: 'align-middle h-40 w-40 object-cover rounded-full border-2 dark:border-slate-100 border-slate-900 shadow-lg') %>
     <% end %>
   </div>
 </div>
+<%= render 'shared/stats' %>

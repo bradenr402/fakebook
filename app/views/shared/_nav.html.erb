@@ -1,20 +1,73 @@
-<nav class="flex flex-row items-center gap-12 mx-6">
-  <h1 class="font-bold text-4xl text-blue-500">FakeBook</h1>
+<nav class="flex items-center gap-6 mx-6">
+  <h1 class="font-bold text-4xl text-blue-500 mr-8">FakeBook</h1>
 
-  <% [
-    ['Feed', root_path],
-    ['Discover', discover_feed_path],
-    ['All Users', users_path],
-  ].each do |title, url| %>
-
-    <% if current_page?(url) %>
-      <%= link_to title, url, class: 'font-medium default-transition px-4 py-2.5 bg-gray-200 dark:bg-slate-800 focus:outline-none focus:ring-0 rounded-md' %>
-    <% else %>
-      <%= link_to title, url, class: 'font-medium default-transition px-4 py-2.5 hover:bg-gray-200 dark:hover:bg-slate-800 focus:bg-gray-200 dark:focus:bg-slate-800 focus:outline-none focus:ring-0 rounded-md' %>
+  <!-- Link to home feed -->
+  <% if current_page?(root_path) || current_page?(posts_path) %>
+    <%= link_to root_path, class: 'flex items-center gap-2 font-medium text-gray-700 dark:text-gray-300 default-transition pl-3.5 pr-4 py-2.5 bg-gray-200 dark:bg-slate-800 focus:outline-none focus:ring-0 rounded-md' do %>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 align-middle" fill="currentColor">
+        <g data-name="Layer 2"><g data-name="home"><rect width="24" height="24" opacity="0"/><rect x="10" y="14" width="4" height="7"/>
+        <path d="M20.42 10.18L12.71 2.3a1 1 0 0 0-1.42 0l-7.71 7.89A2 2 0 0 0 3 11.62V20a2 2 0 0 0 1.89 2H8v-9a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v9h3.11A2 2 0 0 0 21 20v-8.38a2.07 2.07 0 0 0-.58-1.44z"/>
+      </svg>
+      Home
+    <% end %>
+  <% else %>
+    <%= link_to root_path, class: 'flex items-center gap-2 font-medium text-gray-700 dark:text-gray-300 default-transition pl-3.5 pr-4 py-2.5 hover:bg-gray-200 dark:hover:bg-slate-800 focus:bg-gray-200 dark:focus:bg-slate-800 focus:outline-none focus:ring-0 rounded-md' do %>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 align-middle" fill="currentColor">
+        <g data-name="Layer 2"><g data-name="home"><rect width="24" height="24" opacity="0"/><rect x="10" y="14" width="4" height="7"/>
+        <path d="M20.42 10.18L12.71 2.3a1 1 0 0 0-1.42 0l-7.71 7.89A2 2 0 0 0 3 11.62V20a2 2 0 0 0 1.89 2H8v-9a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v9h3.11A2 2 0 0 0 21 20v-8.38a2.07 2.07 0 0 0-.58-1.44z"/>
+      </svg>
+      Home
     <% end %>
   <% end %>
+  <!-- Link to home feed end -->
 
-<%= render 'shared/dropdown_menu' %>
+  <!-- Link to discover feed -->
+  <% if current_page?(discover_feed_path) %>
+    <%= link_to discover_feed_path, class: 'flex items-center gap-2 font-medium text-gray-700 dark:text-gray-300 default-transition pl-3.5 pr-4 py-2.5 bg-gray-200 dark:bg-slate-800 focus:outline-none focus:ring-0 rounded-md' do %>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 align-middle" fill="currentColor">
+        <polygon points="10.8 13.21 12.49 12.53 13.2 10.79 11.51 11.47 10.8 13.21"/>
+        <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm3.93 7.42l-1.75 4.26a1 1 0 0 1-.55.55l-4.21 1.7A1 1 0 0 1 9 16a1 1 0 0 1-.71-.31h-.05a1 1 0 0 1-.18-1l1.75-4.26a1 1 0 0 1 .55-.55l4.21-1.7a1 1 0 0 1 1.1.25 1 1 0 0 1 .26.99z"/>
+      </svg>
+      Discover
+    <% end %>
+  <% else %>
+    <%= link_to discover_feed_path, class: 'flex items-center gap-2 font-medium text-gray-700 dark:text-gray-300 default-transition pl-3.5 pr-4 py-2.5 hover:bg-gray-200 dark:hover:bg-slate-800 focus:bg-gray-200 dark:focus:bg-slate-800 focus:outline-none focus:ring-0 rounded-md' do %>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 align-middle" fill="currentColor">
+        <polygon points="10.8 13.21 12.49 12.53 13.2 10.79 11.51 11.47 10.8 13.21"/>
+        <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm3.93 7.42l-1.75 4.26a1 1 0 0 1-.55.55l-4.21 1.7A1 1 0 0 1 9 16a1 1 0 0 1-.71-.31h-.05a1 1 0 0 1-.18-1l1.75-4.26a1 1 0 0 1 .55-.55l4.21-1.7a1 1 0 0 1 1.1.25 1 1 0 0 1 .26.99z"/>
+      </svg>
+      Discover
+    <% end %>
+  <% end %>
+  <!-- Link to discover feed end -->
+
+  <!-- Link to users page end -->
+  <% if current_page?(users_path) %>
+    <%= link_to users_path, class: 'flex items-center gap-2 font-medium text-gray-700 dark:text-gray-300 default-transition pl-3.5 pr-4 py-2.5 bg-gray-200 dark:bg-slate-800 focus:outline-none focus:ring-0 rounded-md' do %>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 align-middle" fill="currentColor">
+        <rect width="24" height="24" opacity="0"/>
+        <path d="M9 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4z"/><path d="M17 13a3 3 0 1 0-3-3 3 3 0 0 0 3 3z"/>
+        <path d="M21 20a1 1 0 0 0 1-1 5 5 0 0 0-8.06-3.95A7 7 0 0 0 2 20a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1"/>
+      </svg>
+      Connect
+    <% end %>
+  <% else %>
+    <%= link_to users_path, class: 'flex items-center gap-2 font-medium text-gray-700 dark:text-gray-300 default-transition pl-3.5 pr-4 py-2.5 hover:bg-gray-200 dark:hover:bg-slate-800 focus:bg-gray-200 dark:focus:bg-slate-800 focus:outline-none focus:ring-0 rounded-md' do %>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 align-middle" fill="currentColor">
+        <rect width="24" height="24" opacity="0"/>
+        <path d="M9 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4z"/><path d="M17 13a3 3 0 1 0-3-3 3 3 0 0 0 3 3z"/>
+        <path d="M21 20a1 1 0 0 0 1-1 5 5 0 0 0-8.06-3.95A7 7 0 0 0 2 20a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1"/>
+      </svg>
+      Connect
+    <% end %>
+  <% end %>
+  <!-- Link to users page end -->
+
+  <!-- Dropdown menu -->
+  <div class="ml-auto flex items-center gap-6">
+    <%= render 'shared/dropdown_menu' %>
+  </div>
+  <!-- Dropdown menu end -->
 
 </nav>
 
