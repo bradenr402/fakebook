@@ -14,43 +14,23 @@
 
   <body data-controller="dark-mode" class="font-sans bg-slate-100 text-slate-900 dark:bg-slate-900 dark:text-slate-300">
     <% if alert %>
-    <div class="p-5 shadow-xl rounded-lg bg-[#fad2e1] text-[#7c193d] dark:bg-rose-900 dark:text-[#fad2e1] absolute top-10 left-1/2 -translate-x-1/2 z-50">
-      <span class="ml-4 font-bold float-right text-2xl leading-none cursor-pointer duration-300 hover:text-black" onclick="this.parentElement.style.display='none';">&times;</span>
-      <%= alert %>
-    </div>
+      <div class="p-5 shadow-xl rounded-lg bg-[#fad2e1] text-[#7c193d] dark:bg-rose-900 dark:text-[#fad2e1] absolute top-10 left-1/2 -translate-x-1/2 z-50">
+        <span class="ml-4 font-bold float-right text-2xl leading-none cursor-pointer duration-300 hover:text-black" onclick="this.parentElement.style.display='none';">&times;</span>
+        <%= alert %>
+      </div>
     <% end %>
 
     <% if notice %>
-    <div class="p-5 shadow-xl rounded-lg bg-[#98f5e1] text-[#236c5b] dark:bg-green-900 dark:text-[#98f5e1] absolute top-10 left-1/2 -translate-x-1/2 z-50">
-      <span class="ml-4 font-bold float-right text-2xl leading-none cursor-pointer duration-300 hover:text-black" onclick="this.parentElement.style.display='none';">&times;</span>
-      <%= notice %>
-    </div>
+      <div class="p-5 shadow-xl rounded-lg bg-[#98f5e1] text-[#236c5b] dark:bg-green-900 dark:text-[#98f5e1] absolute top-10 left-1/2 -translate-x-1/2 z-50">
+        <span class="ml-4 font-bold float-right text-2xl leading-none cursor-pointer duration-300 hover:text-black" onclick="this.parentElement.style.display='none';">&times;</span>
+        <%= notice %>
+      </div>
     <% end %>
-
-
-
-
-  <% unless user_signed_in?  %>
-    <div class="flex items-center gap-6 py-6 mx-6">
-      <h1 class="font-bold text-4xl text-blue-500">FakeBook</h1>
-      <div class="ml-auto flex items-center"><%= render 'shared/dark_mode_toggle' %></div>
-    </div>
-  <% end %>
-
-
-
 
     <% if user_signed_in? %>
       <aside class="sticky top-0 py-4 w-full bg-slate-100 dark:bg-slate-900 backdrop-blur bg-opacity-80 dark:bg-opacity-80 border-b border-opacity-10 dark:border-opacity-10 border-slate-900 dark:border-slate-50 z-10">
         <%= render 'shared/nav' %>
       </aside>
-
-      <% unless current_page?(new_post_path) || true %>
-        <%= link_to new_post_path, class: 'btn-primary bg-blue-500 h-14 w-max px-4 rounded-lg text-base font-medium inline-flex items-center justify-between shadow-md default-transition hover:shadow-lg fixed left-10 bottom-10' do %>
-          <svg class="w-6 h-6 mr-3 text-gray-50" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-square"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
-          <span class="text-gray-50">New Post</span>
-        <% end %>
-      <% end %>
 
       <div class="grid grid-cols-12 gap-5">
         <main class="py-12 lg:col-start-4 lg:col-end-10 md:col-start-3 md:col-end-11 sm:col-start-2 sm:col-end-12">
@@ -58,6 +38,10 @@
         </main>
       </div>
     <% else %>
+      <div class="flex items-center gap-6 py-6 mx-6">
+        <h1 class="font-bold text-4xl text-blue-500">fakebook</h1>
+        <div class="ml-auto flex items-center"><%= render 'shared/dark_mode_toggle' %></div>
+      </div>
       <%= yield %>
     <% end %>
   </body>

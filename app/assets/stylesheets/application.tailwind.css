@@ -18,15 +18,15 @@
   }
 
   .btn-blue {
-    @apply btn-primary bg-[#caf0f8] text-[#03045e] dark:bg-blue-900 dark:text-[#caf0f8] dark:hover:bg-blue-800;
+    @apply btn-primary bg-[#caf0f8] text-[#03045e] dark:bg-blue-900 dark:text-[#caf0f8] dark:hover:bg-blue-800 dark:focus:bg-blue-800;
   }
 
   .btn-green {
-    @apply btn-primary bg-[#98f5e1] text-[#236c5b] dark:bg-green-900 dark:text-[#98f5e1] dark:hover:bg-green-800;
+    @apply btn-primary bg-[#98f5e1] text-[#236c5b] dark:bg-green-900 dark:text-[#98f5e1] dark:hover:bg-green-800 dark:focus:bg-green-800;
   }
 
   .btn-red {
-    @apply btn-primary bg-[#fad2e1] text-[#7c193d] dark:bg-rose-900 dark:text-[#fad2e1] dark:hover:bg-rose-800;
+    @apply btn-primary bg-[#fad2e1] text-[#7c193d] dark:bg-rose-900 dark:text-[#fad2e1] dark:hover:bg-rose-800 dark:focus:bg-rose-800;
   }
 
   .post-frame {
