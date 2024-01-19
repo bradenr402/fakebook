@@ -10,7 +10,11 @@
   }
 
   .btn-primary {
-    @apply bg-gray-200 dark:bg-slate-800 py-1 px-4 rounded text-sm cursor-pointer default-transition hover:shadow active:shadow-inner;
+    @apply py-1 px-4 rounded text-sm cursor-pointer default-transition hover:shadow active:shadow-inner;
+  }
+
+  .btn-gray {
+    @apply btn-primary bg-gray-200 dark:bg-slate-800;
   }
 
   .btn-blue {

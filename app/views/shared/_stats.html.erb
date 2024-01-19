@@ -3,7 +3,7 @@
 <div class="stats flex gap-4 w-full items-center justify-center">
 
 <% if current_page?(following_user_path(@user)) || current_page?(followers_user_path(@user)) %>
-    <%= link_to 'Back to profile', @user, class: 'btn-primary' %>
+    <%= link_to 'Back to profile', @user, class: 'btn-gray' %>
 <% end %>
   <%= link_to "#{@user.followees.count} following", following_user_path(@user), class: 'btn-blue' %>
   <%= link_to "#{@user.followers.count} followers", followers_user_path(@user), class: 'btn-blue' %>
