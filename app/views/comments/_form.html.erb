@@ -1,7 +1,7 @@
 <%= form_with model: [ @post, @post.comments.build ] do |f| %>
   <%= f.label :body, 'Leave a comment:', class: 'block ml-5 mb-3' %>
   <div class="flex items-center justify-center w-full">
-    <%= f.text_area :body, rows: '5', data: { controller: 'autogrow', action: "input->autogrow#grow" }, placeholder: 'Say something...', class: 'default-transition block p-4 mb-6 w-[95%] bg-white dark:bg-slate-800 rounded-lg border border-zinc-800 border-opacity-25 focus:ring-1 focus:ring-blue-500 shadow-sm focus:shadow-lg focus:scale-105 resize-none' %>
+    <%= f.text_area :body, rows: '5', data: { controller: 'autogrow', action: "input->autogrow#grow" }, autofocus: autofocus_comment, placeholder: 'Say something...', class: 'default-transition block p-4 mb-6 w-[95%] bg-white dark:bg-slate-800 rounded-lg border border-zinc-800 border-opacity-25 focus:ring-1 focus:ring-blue-500 shadow-sm focus:shadow-lg focus:scale-105 resize-none' %>
   </div>
 
   <div class="flex w-full">
