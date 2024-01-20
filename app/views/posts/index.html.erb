@@ -6,8 +6,8 @@
 <% if @posts.blank? %>
   <p class="text-sm text-gray-600 dark:text-gray-500 mb-4 text-center mt-20">Nothing to see here!</p>
   <div class="flex items-center justify-center gap-8">
-    <%= link_to 'Connect with new people', users_path, class: 'btn-primary dark:hover:bg-slate-700 font-medium text-lg px-6 py-2 hover:shadow-lg' %>
-    <%= link_to 'Discover new content', discover_feed_path, class: 'btn-primary dark:hover:bg-slate-700 font-medium text-lg px-6 py-2 hover:shadow-lg' %>
+    <%= link_to 'Connect with new people', users_path, class: 'btn-gray dark:hover:bg-slate-700 font-medium text-lg px-6 py-2 hover:shadow-lg' %>
+    <%= link_to 'Discover new content', discover_feed_path, class: 'btn-gray dark:hover:bg-slate-700 font-medium text-lg px-6 py-2 hover:shadow-lg' %>
   </div>
 <% else %>
   <div id="posts">
