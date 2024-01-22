@@ -2,12 +2,12 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @posts = Post.includes(:user).where(user_id: current_user.followees)
-                 .or(Post.includes(:user).where(user_id: current_user))
+    @posts = Post.includes(user: :avatar_attachment).where(user_id: current_user.followees)
+                 .or(Post.includes(user: :avatar_attachment).where(user_id: current_user))
   end
 
   def show
-    @post = Post.includes(:user).find(params[:id])
+    @post = Post.includes(user: :avatar_attachment, comments: :user).find(params[:id])
   end
 
   def new
@@ -50,7 +50,7 @@ class PostsController < ApplicationController
   end
 
   def discover
-    @posts = Post.all
+    @posts = Post.includes(user: :avatar_attachment)
     render :index
   end
 

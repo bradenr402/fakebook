@@ -75,3 +75,5 @@ gem 'faker', '~> 3.2'
 gem 'file_validators', '~> 3.0'
 
 gem 'tailwindcss-rails', '~> 2.3'
+
+gem 'bullet', group: 'development'

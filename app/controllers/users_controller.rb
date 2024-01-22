@@ -2,11 +2,11 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @users = User.all.where.not(id: current_user)
+    @users = User.includes(:avatar_attachment).where.not(id: current_user)
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find(params[:id]) == current_user ? User.includes(follow_requests: :follower).find(params[:id]) : User.find(params[:id])
   end
 
   def follow
