@@ -2,9 +2,9 @@
   <div class=" flex items-start">
     <div class="profile-image thumb">
       <% if post.user.avatar.attached? %>
-        <%= link_to image_tag(post.user.avatar, class: 'h-16 w-16 mr-3 align-middle object-cover rounded-full border-2 dark:border-slate-100 border-slate-900 shadow-lg'), post.user %>
+        <%= link_to image_tag(post.user.avatar, class: 'h-16 w-16 mr-3 align-middle object-cover rounded-full border-2 border-blue-500 dark:border-blue-500 shadow-lg'), post.user %>
       <% else %>
-        <%= link_to image_tag('default-avatar.png', class: 'h-16 w-16 mr-3 align-middle object-cover rounded-full border-2 dark:border-slate-100 border-slate-900 shadow-lg'), post.user %>
+        <%= link_to image_tag('default-avatar.png', class: 'h-16 w-16 mr-3 align-middle object-cover rounded-full border-2 border-blue-500 dark:border-blue-500 shadow-lg'), post.user %>
       <% end %>
     </div>
     <div class="post-info">

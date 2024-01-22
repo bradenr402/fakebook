@@ -23,11 +23,11 @@
 
   </div>
 
-  <div class="profile-image mx-auto">
+  <div class="mx-auto">
     <% if user.avatar.attached? %>
-      <%= image_tag(user.avatar, class: 'align-middle h-40 w-40 object-cover rounded-full border-2 dark:border-slate-100 border-slate-900 shadow-lg') %>
+      <%= image_tag(user.avatar, class: 'align-middle h-40 w-40 object-cover rounded-full border-4 border-blue-500 dark:border-blue-500 shadow-lg') %>
     <% else %>
-      <%= image_tag('default-avatar.png', class: 'align-middle h-40 w-40 object-cover rounded-full border-2 dark:border-slate-100 border-slate-900 shadow-lg') %>
+      <%= image_tag('default-avatar.png', class: 'align-middle h-40 w-40 object-cover rounded-full border-4 border-blue-500 dark:border-blue-500 shadow-lg') %>
     <% end %>
   </div>
 </div>
