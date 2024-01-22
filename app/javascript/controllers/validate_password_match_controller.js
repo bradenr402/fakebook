@@ -12,10 +12,10 @@ export default class extends Controller {
     if (this.confirmationFieldTarget.value == '') {
       resetStyles()
     } else if (this.confirmationFieldTarget.value !== this.passwordFieldTarget.value) {
-      this.confirmationFieldTarget.style = "border-color: rgb(239, 68, 68); background-color: rgba(127, 29, 29, 0.25);"
+      this.confirmationFieldTarget.style = "border-color: rgb(239, 68, 68);"
       this.errorMessageTarget.style = 'display: block;'
     } else {
-      this.confirmationFieldTarget.style = "border-color: rgb(34, 197, 94); background-color: rgba(20, 83, 45, 0.25);"
+      this.confirmationFieldTarget.style = "border-color: rgb(34, 197, 94);"
       this.errorMessageTarget.style = 'display: hidden;'
     }
   }
@@ -26,9 +26,9 @@ export default class extends Controller {
 
   resetStyles() {
     if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      this.confirmationFieldTarget.style = 'background-color: rgba(51, 65, 85, 0.75); border-color: rgba(39, 39, 42, 0.15);'
+      this.confirmationFieldTarget.style = 'border-color: rgb(75, 85, 99);'
     } else {
-      this.confirmationFieldTarget.style = 'background-color: transparent; border-color: rgba(39, 39, 42, 0.15);'
+      this.confirmationFieldTarget.style = 'border-color: rgb(209, 213, 219);'
     }
   }
 }

@@ -4,26 +4,26 @@
   <div class="bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-zinc-800 border-opacity-10 p-8 drop-shadow-xl rounded-lg ml-auto mr-auto w-2/5 max-w-96 min-w-80">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-      <div class="field mb-4">
-        <%= f.label :email, 'Email address', class: 'sr-only' %>
-        <%= f.email_field :email, autocomplete: "email", autofocus: true, placeholder: 'Email address', pattern: '^[a-z0-9._\-]+@[a-z0-9.\-]+\.[a-z]{2,4}$', class: 'peer dark:bg-slate-700 dark:bg-opacity-75 default-transition block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-md border border-zinc-800 border-opacity-15 focus:ring-1 focus:ring-blue-500 invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 invalid:[&:not(:placeholder-shown):not(:focus)]:bg-red-900 invalid:[&:not(:placeholder-shown):not(:focus)]:bg-opacity-25 valid:[&:not(:placeholder-shown):not(:focus)]:border-green-500 valid:[&:not(:placeholder-shown):not(:focus)]:bg-green-900 valid:[&:not(:placeholder-shown):not(:focus)]:bg-opacity-25' %>
+      <div class="relative mb-4">
+        <%= f.email_field :email, autocomplete: "email", placeholder: ' ', autofocus: true, pattern: '^[a-z0-9._\-]+@[a-z0-9.\-]+\.[a-z]{2,4}$', class: 'peer block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent default-transition rounded-md appearance-none border border-gray-300 dark:border-gray-600 focus:ring-1 focus:ring-blue-500 invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 valid:[&:not(:placeholder-shown):not(:focus)]:border-green-500' %>
+        <%= f.label :email, 'Email address', class: 'absolute text-sm text-gray-500 dark:text-gray-400 default-transition transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-slate-800 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 start-1' %>
         <p class="hidden peer-focus:hidden peer-invalid:block text-red-500 text-xs mt-1">Please type a valid email address.</p>
       </div>
 
-      <div class="field mb-4">
-        <%= f.label :password, class: 'sr-only' %>
-        <%= f.password_field :password, autocomplete: "current-password", placeholder: 'Password', pattern: ".{6,}", class: 'peer dark:bg-slate-700 dark:bg-opacity-75 default-transition block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-md border border-zinc-800 border-opacity-15 focus:ring-1 focus:border-blue-500 invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 invalid:[&:not(:placeholder-shown):not(:focus)]:bg-red-900 invalid:[&:not(:placeholder-shown):not(:focus)]:bg-opacity-25 valid:[&:not(:placeholder-shown):not(:focus)]:border-green-500 valid:[&:not(:placeholder-shown):not(:focus)]:bg-green-900 valid:[&:not(:placeholder-shown):not(:focus)]:bg-opacity-25' %>
+      <div class="relative mb-4">
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: ' ', pattern: ".{6,}", class: 'peer block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent default-transition rounded-md appearance-none border border-gray-300 dark:border-gray-600 focus:ring-1 focus:ring-blue-500 invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 valid:[&:not(:placeholder-shown):not(:focus)]:border-green-500' %>
+        <%= f.label :password, class: 'absolute text-sm text-gray-500 dark:text-gray-400 default-transition transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-slate-800 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 start-1' %>
         <p class="hidden peer-focus:hidden peer-invalid:block text-red-500 text-xs mt-1">Password must be at least 6 characters.</p>
       </div>
 
       <% if devise_mapping.rememberable? %>
-        <div class="field flex items-center mb-4">
+        <div class="flex items-center mb-4">
           <%= f.check_box :remember_me, class: 'default-transition w-4 h-4 text-blue-500 bg-gray-100 dark:bg-slate-700 dark:checked:bg-blue-500 border border-zinc-800 border-opacity-10 rounded focus:ring-blue-500 focus:ring-2 focus:outline-none appearance-none' %>
           <%= f.label :remember_me , class: 'ms-2 text-sm text-gray-500 dark:text-gray-400' %>
         </div>
       <% end %>
 
-      <div class="actions mb-4">
+      <div class="mb-4">
         <%= f.submit "Log In", class: 'btn-primary bg-blue-600 hover:bg-blue-500 focus:bg-blue-500 text-gray-50 font-medium rounded-md w-full px-2.5 py-2.5 focus:ring-blue-500 focus:ring-2 outline-none border-2 border-transparent focus:border-white dark:focus:border-slate-800' %>
       </div>
 
