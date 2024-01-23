@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.includes(user: :avatar_attachment, comments: :user).find(params[:id])
+    @post = Post.includes(user: :avatar_attachment, comments: { user: :avatar_attachment }).find(params[:id])
   end
 
   def new
