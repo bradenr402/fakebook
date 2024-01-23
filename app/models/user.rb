@@ -38,9 +38,17 @@ class User < ApplicationRecord
     followees.include?(other_user)
   end
 
+  def not_following?(other_user)
+    followees.exclude?(other_user)
+  end
+
   def request_to_follow(other_user)
     followee = User.find(other_user.id)
 
     FollowRequest.create(follower_id: id, followee_id: followee.id)
+  end
+
+  def like(likeable)
+    likes.create(likeable: likeable)
   end
 end

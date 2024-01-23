@@ -1,5 +1,5 @@
 <% if follow_request.pending? %>
-  <li class="flex gap-2 items-center bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-4 py-2 rounded-lg overflow-hidden border border-zinc-800 border-opacity-10 shadow-sm w-full">
+  <li class="flex gap-2 items-center lg:w-4/5 md:w-full bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-4 py-2 rounded-lg overflow-hidden border border-zinc-800 border-opacity-10 shadow-sm">
       <% if follow_request.follower.avatar.attached? %>
         <%= link_to image_tag(follow_request.follower.avatar, class: 'h-12 w-12 align-middle object-cover rounded-full border-2 border-blue-500 dark:border-blue-500 shadow-md'), follow_request.follower %>
       <% else %>
