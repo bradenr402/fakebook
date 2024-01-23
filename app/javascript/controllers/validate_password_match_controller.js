@@ -2,11 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="validate-password-match"
 export default class extends Controller {
-  static targets = ["passwordField", "confirmationField", "errorMessage"]
-
-  connect() {
-    console.log('connected')
-  }
+  static targets = [ 'passwordField', 'confirmationField', 'errorMessage' ]
 
   validateMatch() {
     if (this.confirmationFieldTarget.value == '') {
