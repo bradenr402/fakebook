@@ -24,16 +24,16 @@ class UsersController < ApplicationController
   end
 
   def followers
-    @user = User.find(params[:id])
-    @users = @user.followers
+    @user = User.includes(:avatar_attachment).find(params[:id])
+    @users = @user.followers.includes(:avatar_attachment)
     @title = 'Followers'
 
     render 'show_follow'
   end
 
   def following
-    @user = User.find(params[:id])
-    @users = @user.followees
+    @user = User.includes(:avatar_attachment).find(params[:id])
+    @users = @user.followees.includes(:avatar_attachment)
     @title = 'Following'
 
     render 'show_follow'
