@@ -53,7 +53,14 @@ class PostsController < ApplicationController
   end
 
   def discover
+    page_limit = 10
+    @current_page = params[:page].to_i
+
     @posts = Post.includes(user: :avatar_attachment)
+                 .offset(page_limit * @current_page).limit(page_limit)
+
+    @next_page = @current_page + 1 if Post.count > page_limit * @current_page + page_limit
+
     render :index
   end
 
