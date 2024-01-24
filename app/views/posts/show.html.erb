@@ -17,7 +17,9 @@
 <% if @post.comments.blank? %>
   <p class="text-sm text-gray-500 mb-4 text-center">There are no comments on this post yet. Leave a comment below!</p>
 <% else %>
-  <%= render @post.comments %>
+  <div id="comments">
+    <%= render @post.comments %>
+  </div>
 <% end%>
 
 <%= render 'comments/form', autofocus_comment: params[:autofocus_comment] %>
