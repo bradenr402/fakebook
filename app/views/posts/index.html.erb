@@ -11,8 +11,6 @@
   </div>
 <% else %>
   <div id="posts">
-    <% @posts.each do |post| %>
-      <%= render 'post_link', post: post %>
-    <% end %>
   </div>
+  <%= turbo_frame_tag 'load_more', src: posts_path(format: :turbo_stream), loading: :lazy %>
 <% end%>
