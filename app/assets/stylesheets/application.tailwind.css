@@ -34,7 +34,7 @@
   }
 
   .profile-card {
-    @apply flex flex-row-reverse gap-8 items-center justify-end bg-white dark:bg-slate-800 border border-zinc-800 border-opacity-10 p-8 drop-shadow rounded-lg mb-5;
+    @apply flex flex-row gap-8 items-center bg-white dark:bg-slate-800 border border-zinc-800 border-opacity-10 p-8 drop-shadow rounded-lg mb-5;
   }
 }
 

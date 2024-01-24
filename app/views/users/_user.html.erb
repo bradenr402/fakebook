@@ -1,8 +1,11 @@
-<div class="profile-card flex-col-reverse w-max justify-center mx-auto">
+<div class="profile-card flex-col w-max justify-center mx-auto">
+  <div class="mx-auto">
+    <%= render 'shared/avatar_lg', user: user %>
+  </div>
+
   <div class="info flex flex-col items-center justify-center gap-4">
     <h1 class=""><%= user.name %></h1>
     <p class="text-gray-600 dark:text-gray-400"><%= user.email %></p>
-
 
     <div class="flex items-center justify-center gap-5">
       <% unless user == current_user %>
@@ -20,15 +23,6 @@
         <% end %>
       <% end %>
     </div>
-
-  </div>
-
-  <div class="mx-auto">
-    <% if user.avatar.attached? %>
-      <%= image_tag(user.avatar, class: 'align-middle h-40 w-40 object-cover rounded-full border-4 border-blue-500 dark:border-blue-500 shadow-lg') %>
-    <% else %>
-      <%= image_tag('default-avatar.png', class: 'align-middle h-40 w-40 object-cover rounded-full border-4 border-blue-500 dark:border-blue-500 shadow-lg') %>
-    <% end %>
   </div>
 </div>
 <%= render 'shared/stats' %>

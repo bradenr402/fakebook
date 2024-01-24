@@ -1,0 +1,5 @@
+<% if user.avatar.attached? %>
+  <%= image_tag(user.avatar, class: 'align-middle h-40 w-40 object-cover rounded-full border-4 border-blue-500 dark:border-blue-500 shadow-lg') %>
+<% else %>
+  <%= image_tag('default-avatar.png', class: 'align-middle h-40 w-40 object-cover rounded-full border-4 border-blue-500 dark:border-blue-500 shadow-lg') %>
+<% end %>
