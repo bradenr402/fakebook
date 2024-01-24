@@ -2,11 +2,12 @@ require 'active_support/core_ext/integer/time'
 
 Rails.application.configure do
   config.after_initialize do
-    Bullet.enable        = true
-    Bullet.alert         = true
-    Bullet.bullet_logger = true
-    Bullet.console       = true
-    Bullet.raise         = false
+    Bullet.enable               = true
+    Bullet.alert                = true
+    Bullet.bullet_logger        = true
+    Bullet.console              = true
+    Bullet.raise                = false
+    Bullet.counter_cache_enable = false
   end
 
   # Settings specified here will take precedence over those in config/application.rb.
