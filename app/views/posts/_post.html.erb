@@ -1,23 +1,23 @@
 <div class="post-frame">
   <div class=" flex items-start">
-    <div class="profile-image thumb">
+    <div>
       <% if post.user.avatar.attached? %>
         <%= link_to image_tag(post.user.avatar, class: 'h-16 w-16 mr-3 align-middle object-cover rounded-full border-2 border-blue-500 dark:border-blue-500 shadow-lg'), post.user %>
       <% else %>
         <%= link_to image_tag('default-avatar.png', class: 'h-16 w-16 mr-3 align-middle object-cover rounded-full border-2 border-blue-500 dark:border-blue-500 shadow-lg'), post.user %>
       <% end %>
     </div>
-    <div class="post-info">
+    <div>
       <div class="mt-2 gap-3 text-xl leading-tight">
         <%= link_to post.user.name, post.user %>
       </div>
-      <div class="posted-time">
+      <div class="group">
         <% if post.been_edited? %>
-          <span class="text-sky-500 text-sm relative border-b border-dashed border-black cursor-default before:z-10 before:content-[attr(data-text)] before:absolute before:top-[100%] before:mt-[1.15rem] before:left-[50%] before:-translate-x-2/4 before:w-max before:py-1.5 before:px-2.5 before:rounded-md before:bg-black before:text-white before:text-center before:text-sm before:invisible before:opacity-0 before:duration-200 before:transition-opacity before:ease-linear hover:before:z-10 hover:before:visible hover:before:opacity-100 after:z-10 after:absolute after:top-full after:mt-[0.26rem] after:left-[50%] after:-translate-x-1/2 after:border-8 after:border-t-transparent after:border-r-transparent after:border-l-transparent after:border-b-black after:invisible after:opacity-0 after:duration-200 after:transition-opacity after:ease-linear hover:after:z-10 hover:after:visible hover:after:opacity-100" data-text='edited: <%= formatted_datetime(post.updated_at) %>'>
+          <span data-text='edited: <%= formatted_datetime(post.updated_at) %>' class="text-blue-600 dark:text-blue-500 text-sm relative pb-0.5 border-b border-dashed border-gray-500 dark:border-gray-400 cursor-default before:z-10 before:content-[attr(data-text)] before:absolute before:left-[120%] before:top-[1%] before:rounded-md before:w-max before:py-1.5 before:px-2.5 before:shadow-md before:text-blue-600 dark:before:text-blue-500 before:bg-gray-200 dark:before:bg-slate-700 before:text-center before:text-sm before:invisible before:opacity-0 before:default-transition after:default-transition group-hover:before:visible group-hover:before:opacity-100 after:z-10 after:absolute after:left-[106%] after:top-[10%] after:mt-1 after:border-8 after:border-y-transparent after:border-l-transparent after:border-r-gray-200 dark:after:border-r-slate-700 after:invisible after:opacity-0 after:default-transition group-hover:after:visible group-hover:after:opacity-100">
             <%= formatted_datetime(post.created_at) %>
           </span>
         <% else %>
-          <span class="text-sky-500 text-sm">
+          <span class="text-blue-600 dark:text-blue-500 text-sm">
             <%= formatted_datetime(post.created_at) %>
           </span>
         <% end %>
