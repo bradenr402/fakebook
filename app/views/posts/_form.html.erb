@@ -1,17 +1,18 @@
-<%= form_with model: @post do |f| %>
-  <div class="flex items-center justify-center w-full">
-    <%= f.label :body, 'Post', class: 'sr-only' %>
-    <%= f.text_area :body, rows: '5', data: { controller: 'autogrow', action: "input->autogrow#grow" }, placeholder: 'Say something...', class: 'default-transition block p-4 mb-6 w-[95%] bg-white dark:bg-slate-800 rounded-lg border border-zinc-800 border-opacity-10 focus:ring-0 focus:ring-blue-500 shadow-sm focus:shadow-lg focus:scale-105 resize-none' %>
-    <% @post.errors.full_messages_for(:body).each do |msg| %>
-      <div><%= msg %></div>
-    <% end %>
-  </div>
+<div data-controller="post">
+  <%= form_with model: @post do |f| %>
+    <div class="flex items-center justify-center w-full mb-6 default-transition focus-within:scale-105">
+      <%= f.label :body, 'New post', class: 'sr-only' %>
+      <%= f.text_area :body, rows: '5', data: { controller: 'autogrow', action: "input->autogrow#grow input->post#change", post_target: 'field' }, placeholder: 'Say something...', class: 'default-transition block p-4 w-[95%] bg-white dark:bg-slate-800 rounded-lg border border-zinc-800 border-opacity-10 focus:ring-0 focus:ring-blue-500 shadow-sm focus:shadow-lg resize-none' %>
+    </div>
 
-  <div class="flex w-full">
-    <% if params[:controller] == 'posts' && params[:action] == 'edit' %>
-      <%= f.submit 'Update', class: 'btn-blue font-medium text-lg px-6 py-2 mr-5 ml-auto hover:shadow-lg' %>
-    <% else %>
-      <%= f.submit 'Post', class: 'btn-blue font-medium text-lg px-6 py-2 mr-5 ml-auto hover:shadow-lg' %>
-    <% end %>
-  </div>
-<% end %>
+    <div class="text-right mr-5 mb-6 text-blue-600 dark:text-blue-500 font-mono">Character count: <span data-post-target="output">0</span></div>
+
+    <div class="flex w-full">
+      <% if params[:controller] == 'posts' && params[:action] == 'edit' %>
+        <%= f.submit 'Update', class: 'btn-blue font-medium text-lg px-6 py-2 mr-5 ml-auto hover:shadow-lg' %>
+      <% else %>
+        <%= f.submit 'Post', class: 'btn-blue font-medium text-lg px-6 py-2 mr-5 ml-auto hover:shadow-lg' %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
