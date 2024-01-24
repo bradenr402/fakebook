@@ -1,0 +1,5 @@
+<% like = current_user.likes.find_by(likeable: likeable) %>
+<div class="flex items-center w-full gap-8" id="<%= dom_id(like, likeable[:id]) unless like.nil? %>">
+  <%= render 'shared/like_button', likeable: likeable %>
+  <%= render 'shared/comment_button', likeable: likeable %>
+</div>

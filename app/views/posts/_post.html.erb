@@ -28,6 +28,6 @@
     <span><%= post.body %></span>
   </div>
   <div>
-    <%= render partial: 'likes/button', locals: { likeable: post } %>
+    <%= render 'shared/buttons', likeable: post %>
   </div>
 </div>

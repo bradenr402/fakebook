@@ -20,6 +20,6 @@
     <span class=""><%= comment.body %></span>
   </div>
   <div>
-    <%= render partial: 'likes/button', locals: { likeable: comment } %>
+    <%= render 'shared/like_button', likeable: comment %>
   </div>
 </div>
