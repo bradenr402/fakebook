@@ -1,14 +1,19 @@
 <% if resource.errors.any? %>
   <div id="error_explanation" data-turbo-cache="false">
     <h2>
-      <%= I18n.t("errors.messages.not_saved",
+      <%# I18n.t("errors.messages.not_saved",
                  count: resource.errors.count,
                  resource: resource.class.model_name.human.downcase)
        %>
     </h2>
-    <ul>
+    <ul class="flex flex-col">
       <% resource.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <li><%# message %></li>
+
+        <div class="p-5 shadow-xl rounded-lg bg-[#fad2e1] text-[#7c193d] dark:bg-rose-900 dark:text-[#fad2e1] z-50 default-transition mb-6">
+          <span class="ml-4 font-bold float-right text-2xl leading-none cursor-pointer default-transition hover:text-black"  onclick="this.parentElement.style.display='none';">&times;</span>
+          <%= message %>
+        </div>
       <% end %>
     </ul>
   </div>

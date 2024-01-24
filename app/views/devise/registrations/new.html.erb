@@ -1,10 +1,15 @@
+
 <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
+
+  <div class="flex justify-center">
+    <%= render "devise/shared/error_messages", resource: resource %>
+  </div>
+
   <h1 class="font-bold text-center mb-4 text-3xl text-blue-500">Sign Up</h1>
 
   <div data-controller="validate-password-match" class="bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-zinc-800 border-opacity-10 p-8 drop-shadow-xl rounded-lg ml-auto mr-auto w-2/5 max-w-96 min-w-80">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
-      <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="relative mb-4">
         <%= f.text_field :name, placeholder: ' ', autofocus: true, class: 'peer block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent default-transition rounded-md appearance-none border border-gray-300 dark:border-gray-600 focus:ring-1 focus:ring-blue-500 invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 valid:[&:not(:placeholder-shown):not(:focus)]:border-green-500' %>
@@ -15,7 +20,7 @@
       <div class="relative mb-4">
         <%= f.email_field :email, autocomplete: "email", placeholder: ' ', pattern: '^[a-z0-9._\-]+@[a-z0-9.\-]+\.[a-z]{2,4}$', class: 'peer block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent default-transition rounded-md appearance-none border border-gray-300 dark:border-gray-600 focus:ring-1 focus:ring-blue-500 invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 valid:[&:not(:placeholder-shown):not(:focus)]:border-green-500' %>
         <%= f.label :email, 'Email address', class: 'absolute text-sm text-gray-500 dark:text-gray-400 default-transition transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-slate-800 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 start-1' %>
-        <p class="hidden peer-focus:hidden peer-invalid:block text-red-500 text-xs mt-1">Please type a valid email address.</p>
+        <p class="hidden peer-focus:hidden peer-invalid:block text-red-500 text-xs mt-1">Please enter a valid email address.</p>
       </div>
 
       <div class="relative mb-4">
