@@ -1,5 +1,5 @@
 <% if user.avatar.attached? %>
-  <%= link_to image_tag(user.avatar, class: 'align-middle h-40 w-40 object-cover rounded-full border-4 border-blue-500 dark:border-blue-500 shadow-lg'), user %>
+  <%= link_to image_tag(user.avatar, class: 'align-middle h-40 w-40 object-cover rounded-full border-4 border-blue-500 dark:border-blue-500 shadow-lg', data: { turbo_frame: '_top' }), user, data: { turbo_frame: '_top' } %>
 <% else %>
-  <%= link_to image_tag('default-avatar.png', class: 'align-middle h-40 w-40 object-cover rounded-full border-4 border-blue-500 dark:border-blue-500 shadow-lg'), user %>
+  <%= link_to image_tag('default-avatar.png', class: 'align-middle h-40 w-40 object-cover rounded-full border-4 border-blue-500 dark:border-blue-500 shadow-lg', data: { turbo_frame: '_top' }), user, data: { turbo_frame: '_top' } %>
 <% end %>

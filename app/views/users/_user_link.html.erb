@@ -1,3 +1,4 @@
+<%= turbo_frame_tag dom_id(user) do %>
 <div class="profile-card">
   <div class="profile-image shrink-0">
     <%= render 'shared/avatar_lg_link', user: user %>
@@ -6,17 +7,17 @@
   <div class="info">
 
     <div class="flex items-center gap-6">
-      <h1 class=""><%= link_to user.name, user %></h1>
+      <h1 class=""><%= link_to user.name, user, data: { turbo_frame: '_top' } %></h1>
       <% unless user == current_user %>
         <% if current_user.following?(user) %>
           <h5><%= button_to 'Unfollow', unfollow_user_path(user), class: 'btn-red' %></h5>
         <% else %>
-          <% @request = user.follow_requests.find_by(follower_id: current_user.id) %>
-          <% if @request.nil? %>
+          <% request = user.follow_requests.find_by(follower_id: current_user.id) %>
+          <% if request.nil? %>
             <h5><%= button_to 'Follow', follow_user_path(user), class: 'btn-green' %></h5>
-          <% elsif @request.pending? %>
-            <h5><%= button_to 'Cancel Request', cancel_request_path(@request), class: 'btn-red', method: :delete %></h5>
-          <% elsif @request.declined? %>
+          <% elsif request.pending? %>
+            <h5><%= button_to 'Cancel Request', cancel_request_path(request), class: 'btn-red', method: :delete %></h5>
+          <% elsif request.declined? %>
             <h5>Sorry, <%= user.name %> declined your follow request.</h5>
           <% end %>
         <% end %>
@@ -26,3 +27,4 @@
     <p class="mt-3 text-gray-600 dark:text-gray-400"><%= user.email %></p>
   </div>
 </div>
+<% end %>

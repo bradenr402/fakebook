@@ -1,47 +1,49 @@
-<div class="post-frame ring-1 ring-transparent has-[a.post-link:hover]:ring-blue-500 default-transition">
-  <div class="flex items-start">
-    <div>
-      <%= render 'shared/avatar_md_link', user: post.user %>
-    </div>
-    <div>
-      <div class="mt-2 flex gap-3 text-xl leading-tight">
-        <%= link_to post.user.name, post.user %>
+<%= turbo_frame_tag dom_id(post) do %>
+  <article class="post-frame ring-1 ring-transparent has-[a.post-link:hover]:ring-blue-500 default-transition">
+    <div class="flex items-start">
+      <div>
+        <%= render 'shared/avatar_md_link', user: post.user %>
       </div>
-      <div class="group">
-        <% if post.been_edited? %>
-          <% if post.created_today? %>
-            <span data-text='edited: <%= formatted_time(post.updated_at) %>' class="text-blue-600 dark:text-blue-500 text-sm relative pb-0.5 border-b border-dashed border-gray-500 dark:border-gray-400 cursor-default before:z-10 before:content-[attr(data-text)] before:absolute before:left-[120%] before:top-[1%] before:rounded-md before:w-max before:py-1.5 before:px-2.5 before:shadow-md before:text-blue-600 dark:before:text-blue-500 before:bg-gray-200 dark:before:bg-slate-700 before:text-center before:text-sm before:invisible before:opacity-0 before:default-transition after:default-transition group-hover:before:visible group-hover:before:opacity-100 after:z-10 after:absolute after:left-[106%] after:top-[10%] after:mt-1 after:border-8 after:border-y-transparent after:border-l-transparent after:border-r-gray-200 dark:after:border-r-slate-700 after:invisible after:opacity-0 after:default-transition group-hover:after:visible group-hover:after:opacity-100">
-              <%= formatted_time(post.created_at) %>
-            </span>
-          <% else %>
-            <% if post.updated_today? %>
-              <span data-text='edited: today at <%= formatted_time(post.updated_at) %>' class="text-blue-600 dark:text-blue-500 text-sm relative pb-0.5 border-b border-dashed border-gray-500 dark:border-gray-400 cursor-default before:z-10 before:content-[attr(data-text)] before:absolute before:left-[120%] before:top-[1%] before:rounded-md before:w-max before:py-1.5 before:px-2.5 before:shadow-md before:text-blue-600 dark:before:text-blue-500 before:bg-gray-200 dark:before:bg-slate-700 before:text-center before:text-sm before:invisible before:opacity-0 before:default-transition after:default-transition group-hover:before:visible group-hover:before:opacity-100 after:z-10 after:absolute after:left-[106%] after:top-[10%] after:mt-1 after:border-8 after:border-y-transparent after:border-l-transparent after:border-r-gray-200 dark:after:border-r-slate-700 after:invisible after:opacity-0 after:default-transition group-hover:after:visible group-hover:after:opacity-100">
-                <%= formatted_datetime(post.created_at) %>
-              </span>
-            <% else %>
-              <span data-text='edited: <%= formatted_datetime(post.updated_at) %>' class="text-blue-600 dark:text-blue-500 text-sm relative pb-0.5 border-b border-dashed border-gray-500 dark:border-gray-400 cursor-default before:z-10 before:content-[attr(data-text)] before:absolute before:left-[120%] before:top-[1%] before:rounded-md before:w-max before:py-1.5 before:px-2.5 before:shadow-md before:text-blue-600 dark:before:text-blue-500 before:bg-gray-200 dark:before:bg-slate-700 before:text-center before:text-sm before:invisible before:opacity-0 before:default-transition after:default-transition group-hover:before:visible group-hover:before:opacity-100 after:z-10 after:absolute after:left-[106%] after:top-[10%] after:mt-1 after:border-8 after:border-y-transparent after:border-l-transparent after:border-r-gray-200 dark:after:border-r-slate-700 after:invisible after:opacity-0 after:default-transition group-hover:after:visible group-hover:after:opacity-100">
-                <%= formatted_datetime(post.created_at) %>
-              </span>
-            <% end %>
-          <% end %>
-        <% else %>
-          <span class="text-blue-600 dark:text-blue-500 text-sm">
+      <div>
+        <div class="mt-2 flex gap-3 text-xl leading-tight">
+          <%= link_to post.user.name, post.user, data: { turbo_frame: '_top' } %>
+        </div>
+        <div class="group">
+          <% if post.been_edited? %>
             <% if post.created_today? %>
-              <%= formatted_time(post.created_at) %>
+              <span data-text='edited: <%= formatted_time(post.updated_at) %>' class="text-blue-600 dark:text-blue-500 text-sm relative pb-0.5 border-b border-dashed border-gray-500 dark:border-gray-400 cursor-default before:z-10 before:content-[attr(data-text)] before:absolute before:left-[132%] before:top-[1%] before:rounded-md before:w-max before:py-1.5 before:px-2.5 before:shadow-md before:text-blue-600 dark:before:text-blue-500 before:bg-gray-200 dark:before:bg-slate-700 before:text-center before:text-sm before:invisible before:opacity-0 before:default-transition after:default-transition group-hover:before:visible group-hover:before:opacity-100 after:z-10 after:absolute after:left-[106%] after:top-[10%] after:mt-1 after:border-8 after:border-y-transparent after:border-l-transparent after:border-r-gray-200 dark:after:border-r-slate-700 after:invisible after:opacity-0 after:default-transition group-hover:after:visible group-hover:after:opacity-100">
+                <%= formatted_time(post.created_at) %>
+              </span>
             <% else %>
-              <%= formatted_datetime(post.created_at) %>
+              <% if post.updated_today? %>
+                <span data-text='edited: today at <%= formatted_time(post.updated_at) %>' class="text-blue-600 dark:text-blue-500 text-sm relative pb-0.5 border-b border-dashed border-gray-500 dark:border-gray-400 cursor-default before:z-10 before:content-[attr(data-text)] before:absolute before:left-[120%] before:top-[1%] before:rounded-md before:w-max before:py-1.5 before:px-2.5 before:shadow-md before:text-blue-600 dark:before:text-blue-500 before:bg-gray-200 dark:before:bg-slate-700 before:text-center before:text-sm before:invisible before:opacity-0 before:default-transition after:default-transition group-hover:before:visible group-hover:before:opacity-100 after:z-10 after:absolute after:left-[106%] after:top-[10%] after:mt-1 after:border-8 after:border-y-transparent after:border-l-transparent after:border-r-gray-200 dark:after:border-r-slate-700 after:invisible after:opacity-0 after:default-transition group-hover:after:visible group-hover:after:opacity-100">
+                  <%= formatted_datetime(post.created_at) %>
+                </span>
+              <% else %>
+                <span data-text='edited: <%= formatted_datetime(post.updated_at) %>' class="text-blue-600 dark:text-blue-500 text-sm relative pb-0.5 border-b border-dashed border-gray-500 dark:border-gray-400 cursor-default before:z-10 before:content-[attr(data-text)] before:absolute before:left-[120%] before:top-[1%] before:rounded-md before:w-max before:py-1.5 before:px-2.5 before:shadow-md before:text-blue-600 dark:before:text-blue-500 before:bg-gray-200 dark:before:bg-slate-700 before:text-center before:text-sm before:invisible before:opacity-0 before:default-transition after:default-transition group-hover:before:visible group-hover:before:opacity-100 after:z-10 after:absolute after:left-[106%] after:top-[10%] after:mt-1 after:border-8 after:border-y-transparent after:border-l-transparent after:border-r-gray-200 dark:after:border-r-slate-700 after:invisible after:opacity-0 after:default-transition group-hover:after:visible group-hover:after:opacity-100">
+                  <%= formatted_datetime(post.created_at) %>
+                </span>
+              <% end %>
             <% end %>
-          </span>
-        <% end %>
+          <% else %>
+            <span class="text-blue-600 dark:text-blue-500 text-sm">
+              <% if post.created_today? %>
+                <%= formatted_time(post.created_at) %>
+              <% else %>
+                <%= formatted_datetime(post.created_at) %>
+              <% end %>
+            </span>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
-  <%= link_to post, class: 'post-link' do %>
-    <div class="my-5 mx-4">
-      <%= post.body %>
+    <%= link_to post, data: { turbo_frame: '_top' }, class: 'post-link' do %>
+      <div class="my-5 mx-4">
+        <span><%= post.body %></span>
+      </div>
+    <% end %>
+    <div>
+      <%= render 'shared/buttons', likeable: post %>
     </div>
-  <% end %>
-  <div>
-    <%= render 'shared/buttons', likeable: post %>
-  </div>
-</div>
+  </article>
+<% end %>

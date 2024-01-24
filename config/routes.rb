@@ -10,21 +10,29 @@ Rails.application.routes.draw do
   root 'posts#index'
 
   resources :posts do
-    resources :comments, only: %i[create destroy]
-  end
+    resources :comments, only: %i[create destroy], shallow: true do
+      member do
+        post 'like', to: 'comments#like'
+        delete 'unlike', to: 'comments#unlike'
+      end
+    end
 
-  resources :likes, only: %i[create destroy]
+    member do
+      post 'like', to: 'posts#like' # /posts/:id/like
+      delete 'unlike', to: 'posts#unlike' # /posts/:id/unlike
+    end
+  end
 
   resources :users do
     member do
       get :following, :followers
     end
   end
+
   post 'users/:id/follow', to: 'users#follow', as: 'follow_user'
   post 'users/:id/unfollow', to: 'users#unfollow', as: 'unfollow_user'
 
   delete 'follow_requests/:id/cancel_request', to: 'follow_requests#destroy', as: 'cancel_request'
-
   post 'follow_requests/:id/accept', to: 'follow_requests#accept', as: 'accept_request'
   post 'follow_requests/:id/decline', to: 'follow_requests#decline', as: 'decline_request'
 

@@ -1,21 +1,23 @@
-<div class="post-frame">
-  <div class="flex items-center">
-    <div>
-      <%= render 'shared/avatar_sm_link', user: comment.user %>
-    </div>
-    <div>
-      <div class="mt-2 flex-col gap-3 text-md leading-tight">
-        <%= link_to comment.user.name, comment.user, class: '' %>
+<%= turbo_frame_tag dom_id(comment) do %>
+  <div class="post-frame">
+    <div class="flex items-center">
+      <div>
+        <%= render 'shared/avatar_sm_link', user: comment.user %>
       </div>
-      <span class="text-blue-600 dark:text-blue-500 text-xs">
-        <%= formatted_datetime(comment.created_at) %>
-      </span>
+      <div>
+        <div class="mt-2 flex-col gap-3 text-md leading-tight">
+          <%= link_to comment.user.name, comment.user, data: { turbo_frame: '_top' } %>
+        </div>
+        <span class="text-blue-600 dark:text-blue-500 text-xs">
+          <%= formatted_datetime(comment.created_at) %>
+        </span>
+      </div>
+    </div>
+    <div class="my-5 mx-4">
+      <span class=""><%= comment.body %></span>
+    </div>
+    <div>
+      <%= render 'shared/like_comment_button', likeable: comment %>
     </div>
   </div>
-  <div class="my-5 mx-4">
-    <span class=""><%= comment.body %></span>
-  </div>
-  <div>
-    <%= render 'shared/like_button', likeable: comment %>
-  </div>
-</div>
+<% end %>

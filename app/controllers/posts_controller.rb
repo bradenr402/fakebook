@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: %i[ edit update destroy like unlike ]
   before_action :authenticate_user!
 
   def index
@@ -26,13 +27,9 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit
-    @post = Post.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @post = Post.find(params[:id])
-
     if @post.update(post_params)
       flash[:success] = 'Post was successfully updated'
       redirect_to @post
@@ -43,7 +40,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy
 
     redirect_to root_path, status: :see_other
@@ -54,7 +50,29 @@ class PostsController < ApplicationController
     render :index
   end
 
+  def like
+    current_user.likes.create(likeable: @post)
+    if request.referrer == post_url(@post)
+      render partial: 'posts/post', locals: { post: @post }
+    else
+      render partial: 'posts/post_link', locals: { post: @post }
+    end
+  end
+
+  def unlike
+    current_user.likes.find_by(likeable: @post).destroy
+    if request.referrer == post_url(@post)
+      render partial: 'posts/post', locals: { post: @post }
+    else
+      render partial: 'posts/post_link', locals: { post: @post }
+    end
+  end
+
   private
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
   def post_params
     params.require(:post).permit(:body)
