@@ -1,5 +1,3 @@
-<div class="all-users">
-  <% @users.each do |user| %>
-    <%= render 'user_link', user: user %>
-  <% end %>
+<div id="all-users">
 </div>
+<%= turbo_frame_tag 'load_more', src: users_path(format: :turbo_stream), loading: :lazy %>

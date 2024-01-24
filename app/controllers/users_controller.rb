@@ -2,7 +2,13 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @users = User.includes(:avatar_attachment).where.not(id: current_user)
+    page_limit = 10
+    @current_page = params[:page].to_i
+
+    @users = User.includes(:avatar_attachment).where.not(id: current_user.id)
+                 .offset(page_limit * @current_page).limit(page_limit)
+
+    @next_page = @current_page + 1 if User.count > page_limit * @current_page + page_limit
   end
 
   def show
