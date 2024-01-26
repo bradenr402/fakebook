@@ -7,11 +7,12 @@
 
     <div class="text-right mr-5 mb-6 text-blue-600 dark:text-blue-500 font-mono">Character count: <span data-post-target="output">0</span></div>
 
-    <div class="flex w-full">
+    <div class="flex gap-5 w-full justify-end">
       <% if params[:controller] == 'posts' && params[:action] == 'edit' %>
-        <%= f.submit 'Update', class: 'btn-blue font-medium text-lg px-6 py-2 mr-5 ml-auto hover:shadow-lg' %>
+        <%= link_to 'Cancel', :back, class: 'btn-gray font-medium text-lg px-6 py-2' %>
+        <%= f.submit 'Update', class: 'btn-blue font-medium text-lg px-6 py-2 mr-5 hover:shadow-lg' %>
       <% else %>
-        <%= f.submit 'Post', class: 'btn-blue font-medium text-lg px-6 py-2 mr-5 ml-auto hover:shadow-lg' %>
+        <%= f.submit 'Post', class: 'btn-blue font-medium text-lg px-6 py-2 mr-5 hover:shadow-lg' %>
       <% end %>
     </div>
   <% end %>

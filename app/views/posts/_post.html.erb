@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="my-5 mx-4">
-      <span><%= post.body %></span>
+      <div class="flex flex-col gap-4"><%= simple_format(post.body) %></div>
     </div>
     <div>
       <%= render 'shared/buttons', likeable: post %>

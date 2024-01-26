@@ -37,11 +37,20 @@
         </div>
       </div>
     </div>
+
     <%= link_to post, data: { turbo_frame: '_top' }, class: 'post-link' do %>
-      <div class="my-5 mx-4">
-        <span><%= post.body %></span>
-      </div>
+      <% if post.body.length > 350 %>
+        <div class="my-5 mx-4 flex flex-col gap-4">
+          <p><%= simple_format(post.body.truncate(350, separator: ' ', escape: true)) %></p>
+        </div>
+      <% else %>
+          <div class="my-5 mx-4 flex flex-col gap-4">
+            <p><%= simple_format(post.body) %></p>
+          </div>
+      <% end %>
     <% end %>
+
+
     <div>
       <%= render 'shared/buttons', likeable: post %>
     </div>
