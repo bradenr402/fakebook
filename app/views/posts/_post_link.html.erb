@@ -40,11 +40,11 @@
 
     <%= link_to post, data: { turbo_frame: '_top' }, class: 'post-link' do %>
       <% if post.body.length > 350 %>
-        <div class="my-5 mx-4 flex flex-col gap-4">
-          <p><%= simple_format(post.body.truncate(350, separator: ' ', escape: true)) %></p>
+        <div class="m-4 flex flex-col gap-4">
+          <%= simple_format(post.body.truncate(350, separator: ' ', escape: true)) %>
         </div>
       <% else %>
-          <div class="my-5 mx-4 flex flex-col gap-4">
+          <div class="m-4 flex flex-col gap-4">
             <p><%= simple_format(post.body) %></p>
           </div>
       <% end %>
