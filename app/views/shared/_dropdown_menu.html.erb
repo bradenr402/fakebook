@@ -1,9 +1,21 @@
 <div class="relative inline-block text-left">
   <div class="group">
-    <button type="button" class="inline-flex justify-center items-center w-full px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-slate-300 bg-white dark:bg-slate-800 default-transition hover:bg-gray-200 dark:hover:bg-slate-800 focus:bg-gray-200 dark:focus:bg-slate-800 focus:outline-none border border-zinc-800 border-opacity-10 rounded-md shadow hover:cursor-default">
-      Options
+    <button type="button" class="group inline-flex justify-center items-center w-full p-2 text-sm font-medium text-gray-700 dark:text-slate-300 bg-white dark:bg-slate-800 default-transition focus:bg-gray-200 dark:focus:bg-slate-800 focus:outline-none border border-zinc-800 border-opacity-10 rounded-md shadow hover:cursor-default">
+
+
+
+        <%= render 'shared/avatar_xs', user: current_user %>
+        <div class="flex flex-col">
+          <span class="block text-sm font-semibold mr-auto"><%= current_user.name %></span>
+          <span class="block text-xs text-gray-500 dark:text-gray-400 mr-auto"><%= current_user.email %></span>
+        </div>
+      <div class="flex items-center justify-start">
+      </div>
+
+
+
       <!-- Dropdown arrow -->
-      <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <svg class="w-4 h-4 ml-2 group-hover:rotate-180 duration-200 ease-linear" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
       </svg>
       <!-- Dropdown arrow end -->
@@ -13,19 +25,22 @@
     <div class="absolute right-0 mt-2 origin-top-left bg-white dark:bg-slate-800 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible default-transition">
       <div class="p-2">
 
-        <!-- Link to profile -->
-        <div class="mb-2 pl-2 pr-3 py-2 text-gray-700 dark:text-slate-300 default-transition hover:bg-gray-200 dark:hover:bg-slate-700 focus:bg-gray-200 dark:focus:bg-slate-700 focus:outline-none rounded-md">
-          <%= link_to user_path(current_user), class: 'focus:bg-gray-200 focus:outline-none flex items-center w-max active:bg-transparent dark:active:bg-transparent' do %>
+        <%= link_to current_user, class: 'flex items-center gap-2 p-2.5 pr-3.5 text-sm font-medium text-gray-700 dark:text-slate-300 default-transition hover:bg-gray-200 dark:hover:bg-slate-700 focus:bg-gray-200 dark:focus:bg-slate-700 focus:outline-none rounded' do %>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 align-middle" fill="currentColor">
+            <path d="M12 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4z"/><path d="M18 21a1 1 0 0 0 1-1 7 7 0 0 0-14 0 1 1 0 0 0 1 1z"/>
+          </svg>
+          Your profile
+        <% end %>
 
-            <%= render 'shared/avatar_sm', user: current_user %>
+        <%= link_to edit_user_registration_path, class: 'flex items-center gap-2 p-2.5 text-sm font-medium text-gray-700 dark:text-slate-300 default-transition hover:bg-gray-200 dark:hover:bg-slate-700 focus:bg-gray-200 dark:focus:bg-slate-700 focus:outline-none rounded' do %>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 align-middle" fill="currentColor">
+            <rect width="24" height="24" opacity="0"/>
+            <path d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM16 10.68L13.32 8l1.95-2L18 8.73z"/>
+          </svg>
+          Edit account
+        <% end %>
 
-            <div>
-              <span class="block text-sm font-semibold"><%= current_user.name %></span>
-              <span class="block text-sm"><%= current_user.email %></span>
-            </div>
-          <% end %>
-        </div>
-        <!-- Link to profile end -->
+        <%= render 'shared/dark_mode_toggle' %>
 
         <!-- Menu item divider -->
         <div class="my-2">
@@ -33,16 +48,7 @@
         </div>
         <!-- Menu item divider end -->
 
-        <%= render 'shared/dark_mode_toggle' %>
-
-        <%= link_to edit_user_registration_path, class: 'flex items-center gap-2 p-2.5 text-sm text-gray-700 dark:text-slate-300 default-transition hover:bg-gray-200 dark:hover:bg-slate-700 focus:bg-gray-200 dark:focus:bg-slate-700 focus:outline-none rounded' do %>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 align-middle" fill="currentColor">
-            <path d="M12 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4z"/><path d="M18 21a1 1 0 0 0 1-1 7 7 0 0 0-14 0 1 1 0 0 0 1 1z"/>
-          </svg>
-          Edit account
-        <% end %>
-
-        <%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class: 'flex items-center gap-2 p-2.5 text-sm text-gray-700 dark:text-slate-300 default-transition hover:bg-gray-200 dark:hover:bg-slate-700 focus:bg-gray-200 dark:focus:bg-slate-700 focus:outline-none rounded' do %>
+        <%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class: 'flex items-center gap-2 p-2.5 text-sm font-semibold text-red-600 dark:text-red-500 default-transition hover:bg-gray-200 dark:hover:bg-slate-700 focus:bg-gray-200 dark:focus:bg-slate-700 focus:outline-none rounded' do %>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 align-middle" fill="currentColor">
             <path d="M7 6a1 1 0 0 0 0-2H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h2a1 1 0 0 0 0-2H6V6z"/>
             <path d="M20.82 11.42l-2.82-4a1 1 0 0 0-1.39-.24 1 1 0 0 0-.24 1.4L18.09 11H10a1 1 0 0 0 0 2h8l-1.8 2.4a1 1 0 0 0 .2 1.4 1 1 0 0 0 .6.2 1 1 0 0 0 .8-.4l3-4a1 1 0 0 0 .02-1.18z"/>
