@@ -13,6 +13,7 @@
   <div id="posts">
   </div>
   <%= turbo_frame_tag 'load_more', src: posts_path(format: :turbo_stream), loading: :lazy do %>
+  <!-- Skeleton looader -->
     <% 10.times do %>
       <div class="post-frame">
         <div class="flex items-start animate-pulse">
@@ -27,8 +28,8 @@
           </div>
         </div>
 
-        <div class="animate-pulse m-4">
           <!-- Post body -->
+        <div class="animate-pulse m-4">
           <div class="space-y-2">
             <div class="h-4 bg-gray-400 rounded"></div>
             <div class="h-4 bg-gray-400 rounded w-11/12"></div>
