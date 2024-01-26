@@ -1,1 +1,5 @@
-<p>_avatar_md.html.erb</p>
+<% if user.avatar.attached? %>
+  <%= image_tag(user.avatar, class: 'h-16 w-16 mr-3 align-middle object-cover rounded-full border-2 border-blue-500 dark:border-blue-500 shadow-md') %>
+<% else %>
+  <%= image_tag('default-avatar.png', class: 'h-16 w-16 mr-3 align-middle object-cover rounded-full border-2 border-blue-500 dark:border-blue-500 shadow-md') %>
+<% end %>
