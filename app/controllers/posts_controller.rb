@@ -26,7 +26,6 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
 
     if @post.save
-      flash[:success] = 'Post successfully created'
       redirect_to @post
     else
       flash[:error] = 'Something went wrong'
@@ -38,8 +37,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      flash[:success] = 'Post was successfully updated'
-      redirect_to @post
+      redirect_to @post, notice: 'Post was successfully updated'
     else
       flash[:error] = 'Something went wrong'
       render :edit, status: :unprocessable_entity
@@ -49,7 +47,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
 
-    redirect_to root_path, status: :see_other
+    redirect_to root_path, status: :see_other, notice: 'Post was successfully deleted'
   end
 
   def discover
