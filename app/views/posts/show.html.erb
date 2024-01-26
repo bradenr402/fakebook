@@ -3,13 +3,21 @@
 </div>
 
 <% if @post.user == current_user %>
-  <div>
-    <%= link_to 'Edit post', edit_post_path(@post), class: 'btn-blue font-medium px-6 py-2 mr-5 ml-auto' %>
-    <%= link_to 'Delete post', post_path(@post), class: 'btn-red font-medium px-6 py-2 mr-5 ml-auto', data:
-    {
-                      turbo_method: :delete,
-                      turbo_confirm: "Are you sure?"
-                    } %>
+  <div class="flex gap-5" data-turbo="false" data-controller="confirmation">
+    <%= link_to 'Edit post', edit_post_path(@post), class: 'btn-blue font-medium px-6 py-2' %>
+
+   <%= button_to 'Delete post',
+                  post_path(@post),
+                  method: :delete,
+                  class: "btn-red font-medium px-6 py-2",
+                  form: {
+                    data: {
+                      # turbo: false,
+                      controller: "confirmation",
+                      action: 'submit->confirmation#confirm',
+                      confirmation_message_value: "Are you sure you want to delete this post?",
+                    }
+                  } %>
   </div>
 <% end %>
 
