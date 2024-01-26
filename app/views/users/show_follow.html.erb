@@ -10,4 +10,10 @@
         <%= render 'user_link', user: user %>
       <% end %>
     </div>
+<% else %>
+  <% if @title == 'Following' %>
+    <p class="text-sm text-gray-500 mb-4 text-center"><%= @user.name.split(' ').first %> isn't following anyone yet.</p>
+  <% else %>
+    <p class="text-sm text-gray-500 mb-4 text-center"><%= @user.name.split(' ').first %> doesn't have any followers yet.</p>
+  <% end %>
 <% end %>
