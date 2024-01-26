@@ -4,20 +4,31 @@
 
 <% if @post.user == current_user %>
   <div class="flex gap-5" data-turbo="false" data-controller="confirmation">
-    <%= link_to 'Edit post', edit_post_path(@post), class: 'btn-blue font-medium px-6 py-2' %>
+    <%= link_to edit_post_path(@post), class: 'btn-blue font-medium pl-3 py-2 flex items-center gap-2' do %>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 align-middle" fill="currentColor">
+        <rect width="24" height="24" opacity="0"/>
+        <path d="M19 20H5a1 1 0 0 0 0 2h14a1 1 0 0 0 0-2z"/>
+        <path d="M5 18h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71L16.66 2.6A2 2 0 0 0 14 2.53l-9 9a2 2 0 0 0-.57 1.21L4 16.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 18zM15.27 4L18 6.73l-2 1.95L13.32 6z"/>
+      </svg>
+      Edit post
+    <% end %>
 
-   <%= button_to 'Delete post',
-                  post_path(@post),
+    <%= button_to post_path(@post),
                   method: :delete,
-                  class: "btn-red font-medium px-6 py-2",
+                  class: "btn-red font-medium pl-3 py-2 flex items-center gap-2",
                   form: {
                     data: {
-                      # turbo: false,
                       controller: "confirmation",
                       action: 'submit->confirmation#confirm',
                       confirmation_message_value: "Are you sure you want to delete this post?",
                     }
-                  } %>
+                  } do %>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 align-middle" fill="currentColor">
+        <rect width="24" height="24" opacity="0"/>
+        <path d="M21 6h-5V4.33A2.42 2.42 0 0 0 13.5 2h-3A2.42 2.42 0 0 0 8 4.33V6H3a1 1 0 0 0 0 2h1v11a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V8h1a1 1 0 0 0 0-2zM10 16a1 1 0 0 1-2 0v-4a1 1 0 0 1 2 0zm0-11.67c0-.16.21-.33.5-.33h3c.29 0 .5.17.5.33V6h-4zM16 16a1 1 0 0 1-2 0v-4a1 1 0 0 1 2 0z"/>
+      </svg>
+      Delete post
+    <% end %>
   </div>
 <% end %>
 

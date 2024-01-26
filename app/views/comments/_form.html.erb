@@ -7,8 +7,14 @@
 
     <div class="text-right mr-5 mb-6 text-blue-600 dark:text-blue-500 font-mono">Character count: <span data-post-target="output">0</span></div>
 
-    <div class="flex w-full">
-      <%= f.submit 'Post', class: 'btn-blue font-medium text-lg px-6 py-2 mr-5 ml-auto hover:shadow-lg' %>
+    <div class="flex w-full justify-end">
+      <%= button_tag(class: 'btn-blue font-medium text-lg pl-3 py-2 mr-5 hover:shadow-lg flex items-center gap-2') do %>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 align-middle" fill="currentColor">
+          <rect width="24" height="24" opacity="0"/>
+          <path d="M9.86 18a1 1 0 0 1-.73-.32l-4.86-5.17a1 1 0 1 1 1.46-1.37l4.12 4.39 8.41-9.2a1 1 0 1 1 1.48 1.34l-9.14 10a1 1 0 0 1-.73.33z"/>
+        </svg>
+        Post
+      <% end %>
     </div>
   <% end %>
 </div>

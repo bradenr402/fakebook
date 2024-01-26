@@ -9,10 +9,28 @@
 
     <div class="flex gap-5 w-full justify-end">
       <% if params[:controller] == 'posts' && params[:action] == 'edit' %>
-        <%= link_to 'Cancel', :back, class: 'btn-gray font-medium text-lg px-6 py-2' %>
-        <%= f.submit 'Update', class: 'btn-blue font-medium text-lg px-6 py-2 mr-5 hover:shadow-lg' %>
+        <%= link_to :back, class: 'btn-gray font-medium text-lg pl-3 py-2 mr-5 hover:shadow-lg flex items-center gap-2' do %>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 align-middle" fill="currentColor">
+            <rect width="24" height="24" transform="rotate(90 12 12)" opacity="0"/>
+            <path d="M19 11H7.14l3.63-4.36a1 1 0 1 0-1.54-1.28l-5 6a1.19 1.19 0 0 0-.09.15c0 .05 0 .08-.07.13A1 1 0 0 0 4 12a1 1 0 0 0 .07.36c0 .05 0 .08.07.13a1.19 1.19 0 0 0 .09.15l5 6A1 1 0 0 0 10 19a1 1 0 0 0 .64-.23 1 1 0 0 0 .13-1.41L7.14 13H19a1 1 0 0 0 0-2z"/>
+          </svg>
+          Go back
+        <% end %>
+        <%= button_tag(class: 'btn-blue font-medium text-lg pl-3 py-2 mr-5 hover:shadow-lg flex items-center gap-2') do %>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 align-middle" fill="currentColor">
+            <rect width="24" height="24" opacity="0"/>
+            <path d="M9.86 18a1 1 0 0 1-.73-.32l-4.86-5.17a1 1 0 1 1 1.46-1.37l4.12 4.39 8.41-9.2a1 1 0 1 1 1.48 1.34l-9.14 10a1 1 0 0 1-.73.33z"/>
+          </svg>
+          Update
+        <% end %>
       <% else %>
-        <%= f.submit 'Post', class: 'btn-blue font-medium text-lg px-6 py-2 mr-5 hover:shadow-lg' %>
+        <%= button_tag(class: 'btn-blue font-medium text-lg pl-3 py-2 mr-5 hover:shadow-lg flex items-center gap-2') do %>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 align-middle" fill="currentColor">
+            <rect width="24" height="24" opacity="0"/>
+            <path d="M9.86 18a1 1 0 0 1-.73-.32l-4.86-5.17a1 1 0 1 1 1.46-1.37l4.12 4.39 8.41-9.2a1 1 0 1 1 1.48 1.34l-9.14 10a1 1 0 0 1-.73.33z"/>
+          </svg>
+          Post
+        <% end %>
       <% end %>
     </div>
   <% end %>
