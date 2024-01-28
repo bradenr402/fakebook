@@ -11,7 +11,7 @@ Welcome to my **fakebook** project! This is a personal project aimed at creating
 - **User Authentication:** Secure sign-up and login functionality to ensure user privacy.
 - **Profile Management:** Users can customize their profiles, update information, and upload profile pictures.
 - **Post Creation:** Share thoughts and ideas with friends through the app.
-- **Friendship System:** Connect with others, follow other users, and build your network.
+- **Friendship System:** Connect with new people, follow other users, and build your network.
 - **News Feeds:** Stay updated with the latest posts from friends in your Home Feed, or find new content in your Discover Feed.
 - **Connect:** Connect with new users through the Connect Feed.
 
