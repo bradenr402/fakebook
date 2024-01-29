@@ -3,7 +3,7 @@
   <div class="flex justify-center">
     <%= render "devise/shared/error_messages", resource: resource %>
   </div>
-  
+
   <h1 class="font-bold text-center mb-4 text-3xl text-blue-500">Edit Account</h1>
 
   <div data-controller="validate-password-match" class="bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-zinc-800 border-opacity-10 p-8 drop-shadow-xl rounded-lg w-96">
@@ -68,7 +68,7 @@
       </div>
 
       <div class="actions mb-2">
-        <%= f.submit "Update", class: 'btn-primary bg-blue-600 hover:bg-blue-500 focus:bg-blue-500 text-gray-50 font-medium rounded-md w-full px-2.5 py-2.5 focus:ring-blue-500 focus:ring-2 outline-none border-2 border-transparent focus:border-white' %>
+        <%= f.submit "Update", data: { turbo: false }, class: 'btn-primary bg-blue-600 hover:bg-blue-500 focus:bg-blue-500 text-gray-50 font-medium rounded-md w-full px-2.5 py-2.5 focus:ring-blue-500 focus:ring-2 outline-none border-2 border-transparent focus:border-white' %>
       </div>
     <% end %>
 
