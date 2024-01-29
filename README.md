@@ -2,7 +2,7 @@
 
 ## Overview
 
-Welcome to my **fakebook** project! This is a personal project aimed at creating a text-based social media application with unique features and a user-friendly interface.
+Welcome to my **fakebook** project! This is a personal project aimed at creating a text-based social media application with unique features and a user-friendly interface. While currently focused on desktop, fakebook may eventually be updated to be mobile-friendly too. Stay tuned!
 
 (This is part of the Final Project in [The Odin Project](https://www.theodinproject.com)’s Ruby on Rails Curriculum. Find it at https://www.theodinproject.com/lessons/ruby-on-rails-rails-final-project)
 
@@ -21,7 +21,7 @@ Welcome to my **fakebook** project! This is a personal project aimed at creating
 - **Backend:** [Ruby on Rails](https://rubyonrails.org/)
 - **Database:** [PostgreSQL](https://www.postgresql.org/)
 - **Authentication:** [Devise](https://github.com/heartcombo/devise)
-- **Deployment:** https://fakebook.fly.dev 
+- **Deployment:** https://fakebook.fly.dev
 
 ## Issues
 
