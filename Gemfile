@@ -79,3 +79,7 @@ gem 'file_validators', '~> 3.0'
 gem 'tailwindcss-rails', '~> 2.3'
 
 gem 'bullet', group: 'development'
+
+gem "dockerfile-rails", ">= 1.6", :group => :development
+
+gem "redis", "~> 5.0"
