@@ -21,7 +21,7 @@ Welcome to my **fakebook** project! This is a personal project aimed at creating
 - **Backend:** [Ruby on Rails](https://rubyonrails.org/)
 - **Database:** [PostgreSQL](https://www.postgresql.org/)
 - **Authentication:** [Devise](https://github.com/heartcombo/devise)
-- **Deployment:** (not deployed yet)
+- **Deployment:** https://fakebook.fly.dev 
 
 ## Issues
 
