@@ -1,10 +1,48 @@
-# Welcome to fakebook
+# Welcome to *fakebook*
 
 ## Overview
 
-Welcome to my **fakebook** project! This is a personal project aimed at creating a text-based social media application with unique features and a user-friendly interface. While currently focused on desktop, fakebook may eventually be updated to be mobile-friendly too. Stay tuned!
+Welcome to my ***fakebook*** project! This is a personal project aimed at creating a text-based social media application with unique features and a user-friendly interface. While the design is currently only optimized for desktop, ***fakebook*** may eventually be updated to be mobile-friendly too. Stay tuned!
+___
+This project is part of the Final Project in [The Odin Project](https://www.theodinproject.com)’s [Ruby on Rails Curriculum](https://www.theodinproject.com/paths/full-stack-ruby-on-rails/courses/ruby-on-rails). You can find the requirements for this project at the [Project: Rails Final Project](https://www.theodinproject.com/lessons/ruby-on-rails-rails-final-project) page.
 
-(This project is part of the Final Project in [The Odin Project](https://www.theodinproject.com)’s Ruby on Rails Curriculum. Find it at https://www.theodinproject.com/lessons/ruby-on-rails-rails-final-project)
+## Installation
+***fakebook*** is temporarily unavailable on its hosting site, but will be made available again in due course. 
+
+If you would like to try out ***fakebook*** on your own machine, please follow the steps below:
+1. Open your terminal and navigate to your preferred directory for cloning the project.
+
+2. Clone the repository:
+```shell
+git clone https://github.com/bradenr402/fakebook.git
+```
+
+3. Change directory to the cloned repository:
+```shell
+cd fakebook
+```
+
+4. Install dependencies:
+```shell
+bundle install
+```
+
+5. Create the database:
+```shell
+rails db:create
+```
+
+6. Migrate the database:
+```shell
+rails db:migrate
+```
+
+7. Start up the application:
+```shell
+bin/dev
+```
+
+You can now access the application by navigating to [localhost:3000](https://localhost:3000) in your web browser.
 
 ## Features
 
@@ -21,7 +59,7 @@ Welcome to my **fakebook** project! This is a personal project aimed at creating
 - **Backend:** [Ruby on Rails](https://rubyonrails.org/)
 - **Database:** [PostgreSQL](https://www.postgresql.org/)
 - **Authentication:** [Devise](https://github.com/heartcombo/devise)
-- **Deployment:** https://fakebook.fly.dev
+- **Deployment:** https://fakebook.fly.dev (hosted on [fly.io](https://fly.io))
 
 ## Issues
 
