@@ -59,7 +59,10 @@ You can now access the application by navigating to [localhost:3000](https://loc
 - **Backend:** [Ruby on Rails](https://rubyonrails.org/)
 - **Database:** [PostgreSQL](https://www.postgresql.org/)
 - **Authentication:** [Devise](https://github.com/heartcombo/devise)
-- **Deployment:** https://fakebook.fly.dev (hosted on [fly.io](https://fly.io))
+- **Deployment:**
+  - **URL:** [https://fakebook.fly.dev](https://fakebook.fly.dev)
+  - **Hosting Provider:** [fly.io](https://fly.io)
+  - **Status:** Temporarily unavailable
 
 ## Issues
 
